@@ -1,0 +1,61 @@
+button {
+    border: 0;
+    cursor: pointer;
+}
+
+.main_menu {
+    padding-top: 24px;
+    margin: 0 auto;
+    width: 1200px;
+    position: relative;
+}
+
+.main_menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: right;
+}
+
+.main_menu ul li {
+    float: none;
+    display: inline-block;
+}
+
+.main_menu ul li:nth-child(1) {
+    float: left;
+}
+
+.main_menu ul li:nth-child(2) {
+    float: left;
+}
+
+.main_menu ul li button {
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    padding: 20px 10px;
+    color: black;
+    transition: all 0.3s ease 0s;
+}
+
+.main_menu ul li button:hover {
+    color: grey;
+}
+
+.logo_area {
+    padding-top: 24px;
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    margin-left: -150px;
+}
+
+.logo {
+    color: black;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 50px;
+}
