@@ -3,15 +3,15 @@ import {Context} from '../../index';
 import './NavBar.css'
 import '../../App.css'
 import {Link} from "react-router-dom";
-import {observable} from "mobx";
 import {observer} from "mobx-react-lite";
+import {SHOP_ROUTE} from "../../utils/consts";
 
 const NavBar = observer(() => {
     const {user} = useContext(Context)
     return (
         <header className="main_menu">
             <div className="logo_area">
-                <Link to='/shop' className="logo" >E-COMMERCE</Link>
+                <Link to={SHOP_ROUTE} className="logo" >E-COMMERCE</Link>
             </div>
             {user.isAuth ?
                 <nav>
@@ -33,7 +33,6 @@ const NavBar = observer(() => {
                     </ul>
                 </nav>
             }
-
         </header>
     );
 });
