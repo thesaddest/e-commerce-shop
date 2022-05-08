@@ -13,7 +13,7 @@ const Auth = () => {
                 className="d-flex justify-content-center align-items-center container"
                 style={{height: window.innerHeight - 84}}
             >
-                <Card border="dark" className="card p-5">
+                <Card border="dark" className="auth-card p-5">
                     <h2 className="auth-text">{isLogin ? "AUTHORIZATION" : "REGISTRATION"}</h2>
                     <Form className="d-flex flex-column form">
                         <Form.Control
