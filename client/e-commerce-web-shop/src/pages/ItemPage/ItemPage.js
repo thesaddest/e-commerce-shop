@@ -3,7 +3,8 @@ import {Col, Image, Row} from "react-bootstrap";
 import cl from './ItemPage.module.css'
 
 const ItemPage = () => {
-    const [check, setCheck] = useState(false);
+    const [activeButton, setActiveButton] = useState("");
+
     const item = {
         id: 1,
         name: 'New Balance 990v5',
@@ -62,14 +63,21 @@ const ItemPage = () => {
                             <div className={cl.chooseSizeWrapper}>
                                 {item.availableSizes.map(sizeAmount =>
                                     <span
-                                        onClick={() => setCheck(true)}
                                         key={sizeAmount.id}
-                                        className={!check
-                                            ? cl.sizeSelectItem
-                                            : cl.sizeSelectItemActive
+                                        onClick={() => {setActiveButton(sizeAmount.id)}}
+                                        className={activeButton === sizeAmount.id
+                                            ? cl.sizeSelectItemActive
+                                            : cl.sizeSelectItem
                                         }
                                     >
-                                        <span>{sizeAmount.size}</span>
+                                        <span
+                                            className={activeButton === sizeAmount.id
+                                                ? cl.sizeSelectItemSpanActive
+                                                : cl.sizeSelectItemSpan
+                                            }
+                                        >
+                                            {sizeAmount.size}
+                                        </span>
                                     </span>
                                 )}
                             </div>

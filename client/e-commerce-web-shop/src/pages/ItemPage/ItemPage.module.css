@@ -130,5 +130,35 @@
     line-height: 1.25rem;
 }
 
+.sizeSelectItemActive {
+    border: 1px solid black;
+    float: left;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    margin-right: 0.75rem;
+    margin-bottom: 0.75rem;
+    height: 3rem;
+    min-width: 3rem;
+    padding: 0.75rem 0.5rem;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    background-color: black;
+}
 
+.sizeSelectItemSpan {
+    background-color: transparent;
+
+}
+
+.sizeSelectItemSpanActive {
+    background-color: transparent;
+    color: white;
+}
+
+
+
+/* when click span inside should have color: #D8D8D8 and span outside background-color: black;*/
 
