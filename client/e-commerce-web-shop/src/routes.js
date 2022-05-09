@@ -3,7 +3,7 @@ import Admin from "./pages/Admin";
 import Basket from "./pages/Basket";
 import Shop from "./pages/Shop";
 import Auth from "./pages/Auth/Auth";
-import ItemPage from "./pages/ItemPage";
+import ItemPage from "./pages/ItemPage/ItemPage";
 
 export const authRoutes = [
     {
