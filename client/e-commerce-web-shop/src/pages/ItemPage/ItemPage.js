@@ -1,8 +1,9 @@
-import React from 'react';
-import {Card, Col, Container, Image, Row} from "react-bootstrap";
+import React, {useState} from 'react';
+import {Col, Image, Row} from "react-bootstrap";
 import cl from './ItemPage.module.css'
 
 const ItemPage = () => {
+    const [check, setCheck] = useState(false);
     const item = {
         id: 1,
         name: 'New Balance 990v5',
@@ -56,12 +57,21 @@ const ItemPage = () => {
                         </div>
                         <div className={cl.sizeSelectContainer}>
                             <div className={cl.chooseSize}>
-                                <span className={cl.chooseSizeText}>Choose your size:
-
-                                </span>
+                                <span className={cl.chooseSizeText}>Choose your size:</span>
                             </div>
                             <div className={cl.chooseSizeWrapper}>
-
+                                {item.availableSizes.map(sizeAmount =>
+                                    <span
+                                        onClick={() => setCheck(true)}
+                                        key={sizeAmount.id}
+                                        className={!check
+                                            ? cl.sizeSelectItem
+                                            : cl.sizeSelectItemActive
+                                        }
+                                    >
+                                        <span>{sizeAmount.size}</span>
+                                    </span>
+                                )}
                             </div>
                         </div>
                     </div>

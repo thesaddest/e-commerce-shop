@@ -1,3 +1,6 @@
+root {
+    --secondary: 0,0,0;
+}
 * {
     box-sizing: border-box;
     margin: 0;
