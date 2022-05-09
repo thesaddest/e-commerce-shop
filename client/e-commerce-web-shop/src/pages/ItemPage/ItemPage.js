@@ -4,6 +4,11 @@ import cl from './ItemPage.module.css'
 
 const ItemPage = () => {
     const [activeButton, setActiveButton] = useState("");
+    const [isTabTitleClassActive, setTabTitleClassActive] = useState(false);
+
+    const toggleTabTitleClass = () => {
+        setTabTitleClassActive(!isTabTitleClassActive);
+    }
 
     const item = {
         id: 1,
@@ -13,7 +18,13 @@ const ItemPage = () => {
         color: 'grey',
         itemAvailable: true,
         availableSizes: [
-            {id: 1, size: 41}, {id: 2, size: 42}, {id: 3, size: 43}, {id: 4, size: 44}, {id: 5, size: 45}],
+            {id: 1, size: 40},
+            {id: 2, size: 41},
+            {id: 3, size: 42},
+            {id: 4, size: 43},
+            {id: 5, size: 44},
+            {id: 6, size: 45},
+        ],
         img: 'https://nbsklep.pl/picture/fit-in/500x500/smart/filters:fill(white):quality(75)/59e04248954bd7b274eb681c88400cc1.jpg'
     }
     return (
@@ -64,15 +75,17 @@ const ItemPage = () => {
                                 {item.availableSizes.map(sizeAmount =>
                                     <span
                                         key={sizeAmount.id}
-                                        onClick={() => {setActiveButton(sizeAmount.id)}}
+                                        onClick={() => {
+                                            setActiveButton(sizeAmount.id)
+                                        }}
                                         className={activeButton === sizeAmount.id
-                                            ? cl.sizeSelectItemActive
+                                            ? [cl.sizeSelectItem, cl.sizeSelectItemActive].join(' ')
                                             : cl.sizeSelectItem
                                         }
                                     >
                                         <span
                                             className={activeButton === sizeAmount.id
-                                                ? cl.sizeSelectItemSpanActive
+                                                ? [cl.sizeSelectItemSpan, cl.sizeSelectItemSpanActive].join(' ')
                                                 : cl.sizeSelectItemSpan
                                             }
                                         >
@@ -81,6 +94,30 @@ const ItemPage = () => {
                                     </span>
                                 )}
                             </div>
+                        </div>
+                        <div className={cl.productDescription}>
+                            <section className={cl.productAccordion}>
+                                <div className={cl.tabContainer}>
+                                    <div className={cl.tabTitles}>
+                                        <h3 onClick={toggleTabTitleClass}
+                                            className={isTabTitleClassActive
+                                                ? [cl.tabTitle, cl.tabTitleActive].join(' ')
+                                                : cl.tabTitle}>Product</h3>
+                                        <h3
+                                            onClick={toggleTabTitleClass}
+                                            className={isTabTitleClassActive
+                                                ? [cl.tabTitle, cl.tabTitleActive].join(' ')
+                                                : cl.tabTitle}>
+                                            Fit
+                                        </h3>
+                                        <h3 onClick={toggleTabTitleClass}
+                                            className={isTabTitleClassActive
+                                                ? [cl.tabTitle, cl.tabTitleActive].join(' ')
+                                                : cl.tabTitle}>Fabric</h3>
+                                    </div>
+                                    <div className={cl.tabTextBox}></div>
+                                </div>
+                            </section>
                         </div>
                     </div>
                 </Col>

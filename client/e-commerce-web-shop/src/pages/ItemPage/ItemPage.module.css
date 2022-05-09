@@ -131,34 +131,78 @@
 }
 
 .sizeSelectItemActive {
-    border: 1px solid black;
-    float: left;
-    display: flex;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    font-weight: 500;
-    margin-right: 0.75rem;
-    margin-bottom: 0.75rem;
-    height: 3rem;
-    min-width: 3rem;
-    padding: 0.75rem 0.5rem;
-    font-size: .875rem;
-    line-height: 1.25rem;
+
     background-color: black;
+
+    animation-name: background;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
 }
 
 .sizeSelectItemSpan {
     background-color: transparent;
-
 }
 
 .sizeSelectItemSpanActive {
-    background-color: transparent;
     color: white;
+
+    animation-name: backgroundNumber;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+
 }
 
+@keyframes background {
+    0%{
+        background-color: transparent;
+    }
+    100%{
+        background-color: black;
+    }
+}
 
+@keyframes backgroundNumber {
+    0% {
+        color: black;
+    }
+    100% {
+        color: white;
+    }
+}
 
-/* when click span inside should have color: #D8D8D8 and span outside background-color: black;*/
+.productDescription {
+    padding: 0.75em 0;
+}
 
+.productAccordion {
+
+}
+
+.tabContainer {
+    min-height: 420px;
+}
+
+.tabTitles {
+    display: flex;
+}
+
+.tabTitle {
+    flex-grow: 0;
+    flex-basis: 33.33%;
+    align-self: center;
+    margin: 0;
+    font-weight: 400;
+    font-size: 1em;
+    text-align: center;
+    padding: 14px 0 10px;
+    cursor: pointer;
+    color: dimgrey;
+    border-bottom: 2px solid transparent;
+    transition: all .4s linear;
+}
+
+.tabTitleActive {
+    color: black;
+    font-weight: 700;
+    border-bottom: 2px solid black;
+}
