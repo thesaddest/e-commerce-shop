@@ -1,13 +1,16 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Col, Image, Row} from "react-bootstrap";
 import cl from './ItemPage.module.css'
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const ItemPage = () => {
     const menuTabs = [{id: 1, name: 'Product'}, {id: 2, name: 'Fit'}, {id: 3, name: 'Brand Style ID'}]
 
     const [activeButton, setActiveButton] = useState("");
     const [isTabTitleClassActive, setTabTitleClassActive] = useState("");
-    const [setShowItem] = useState(false);
+    const [showItem,setShowItem] = useState(false);
+    const isCarouselNeeded = useMediaQuery('(max-width: 576px)')
+
 
     const toggleTabs = (isTabTitleClassActive) => {
         setTabTitleClassActive(isTabTitleClassActive)
@@ -15,9 +18,9 @@ const ItemPage = () => {
     }
 
 
-    // useEffect(() => {
-    //
-    // }, [])
+    useEffect(() => {
+        setTabTitleClassActive(menuTabs[0].id)
+    }, [])
 
     const item = {
         id: 1,
@@ -87,7 +90,6 @@ const ItemPage = () => {
                 img: 'https://nbsklep.pl/picture/fit-in/500x500/smart/filters:fill(white):quality(75)/9b81415c412d0f87a920ecfb6781e23f.jpg'
             },
             {
-
                 id: 8,
                 img: 'https://nbsklep.pl/picture/fit-in/500x500/smart/filters:fill(white):quality(75)/024bdceb51e03160b4c0d218b315c54f.jpg'
             },

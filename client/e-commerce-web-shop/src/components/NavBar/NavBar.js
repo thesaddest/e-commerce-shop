@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {Context} from '../../index';
 import './NavBar.css';
 import '../../App.css';
@@ -7,7 +7,9 @@ import {observer} from "mobx-react-lite";
 import {SHOP_ROUTE} from "../../utils/consts";
 
 const NavBar = observer(() => {
-    const {user} = useContext(Context)
+    const {user} = useContext(Context);
+
+
     return (
         <header className="main_menu">
             <div className="logo_area">
