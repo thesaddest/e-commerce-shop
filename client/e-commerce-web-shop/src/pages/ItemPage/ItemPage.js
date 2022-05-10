@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Col, Image, Row} from "react-bootstrap";
+import {Col, Image, Row, Carousel} from "react-bootstrap";
 import cl from './ItemPage.module.css'
 import useMediaQuery from "../../hooks/useMediaQuery";
 
@@ -8,7 +8,7 @@ const ItemPage = () => {
 
     const [activeButton, setActiveButton] = useState("");
     const [isTabTitleClassActive, setTabTitleClassActive] = useState("");
-    const [showItem,setShowItem] = useState(false);
+    const [showItem, setShowItem] = useState(false);
     const isCarouselNeeded = useMediaQuery('(max-width: 576px)')
 
 
@@ -46,7 +46,8 @@ const ItemPage = () => {
                     'MADE makes up a limited portion of New Balance’s U.S. sales.'
             },
             {
-                id: 2, name: 'The 990v5 runs true to size but has a wider toe box than you may have had previously. This gives you plenty of wiggle-room.\n' +
+                id: 2,
+                name: 'The 990v5 runs true to size but has a wider toe box than you may have had previously. This gives you plenty of wiggle-room.\n' +
                     '\n' +
                     'If you’re not a fan of the extra room, wear thicker socks. Thicker socks may help absorb sweat and is a trick on how to wear shoes that are too big anyway.\n' +
                     '\n' +
@@ -102,24 +103,45 @@ const ItemPage = () => {
     return (
         <main className={cl.mainContent}>
             <Row className={cl.rowContainer}>
-                <Col className={cl.columnPhotoContainer} lg={true} md={6}>
-                    {item.imagesLeft.map(imagesLeft =>
-                        <Image
-                            key={imagesLeft.id}
-                            className={cl.productGalleryImage}
-                            src={imagesLeft.img}
-                        />
-                    )}
-                </Col>
-                <Col className={cl.columnPhotoContainer} lg={true} md={6}>
-                    {item.imagesRight.map(imagesRight =>
-                        <Image
-                            key={imagesRight.id}
-                            className={cl.productGalleryImage}
-                            src={imagesRight.img}
-                        />
-                    )}
-                </Col>
+                {isCarouselNeeded
+                    ?
+                    <>
+                        <Col className={cl.columnPhotoContainer} lg={true} md={6}>
+                            <Carousel>
+                                {item.imagesLeft.map(imagesLeft =>
+                                    <Carousel.Item>
+                                        <Image
+                                            key={imagesLeft.id}
+                                            className={cl.productGalleryImage}
+                                            src={imagesLeft.img}
+                                        />
+                                    </Carousel.Item>
+                                )}
+                            </Carousel>
+                        </Col>
+                    </>
+                    :
+                    <>
+                        <Col className={cl.columnPhotoContainer} lg={true} md={6}>
+                            {item.imagesLeft.map(imagesLeft =>
+                                <Image
+                                    key={imagesLeft.id}
+                                    className={cl.productGalleryImage}
+                                    src={imagesLeft.img}
+                                />
+                            )}
+                        </Col>
+                        <Col className={cl.columnPhotoContainer} lg={true} md={6}>
+                            {item.imagesRight.map(imagesRight =>
+                                <Image
+                                    key={imagesRight.id}
+                                    className={cl.productGalleryImage}
+                                    src={imagesRight.img}
+                                />
+                            )}
+                        </Col>
+                    </>
+                }
                 <Col className={cl.columnProductInfoContainer}>
                     <div className={cl.productContentContainer}>
                         <div className={cl.productHeaderContainer}>
