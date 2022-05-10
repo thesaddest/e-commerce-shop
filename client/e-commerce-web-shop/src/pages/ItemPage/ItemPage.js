@@ -3,18 +3,27 @@ import {Col, Image, Row} from "react-bootstrap";
 import cl from './ItemPage.module.css'
 
 const ItemPage = () => {
-    const [activeButton, setActiveButton] = useState("");
-    const [isTabTitleClassActive, setTabTitleClassActive] = useState(false);
+    const menuTabs = [{id: 1, name: 'Product'}, {id: 2, name: 'Fit'}, {id: 3, name: 'Brand Style ID'}]
 
-    const toggleTabTitleClass = () => {
-        setTabTitleClassActive(!isTabTitleClassActive);
+    const [activeButton, setActiveButton] = useState("");
+    const [isTabTitleClassActive, setTabTitleClassActive] = useState("");
+    const [setShowItem] = useState(false);
+
+    const toggleTabs = (isTabTitleClassActive) => {
+        setTabTitleClassActive(isTabTitleClassActive)
+        setShowItem(true)
     }
+
+
+    // useEffect(() => {
+    //
+    // }, [])
 
     const item = {
         id: 1,
         name: 'New Balance 990v5',
         made: 'Made in USA',
-        price: 250,
+        price: 270,
         color: 'grey',
         itemAvailable: true,
         availableSizes: [
@@ -25,26 +34,89 @@ const ItemPage = () => {
             {id: 5, size: 44},
             {id: 6, size: 45},
         ],
-        img: 'https://nbsklep.pl/picture/fit-in/500x500/smart/filters:fill(white):quality(75)/59e04248954bd7b274eb681c88400cc1.jpg'
+        menuTextForTabs: [
+            {
+                id: 1, name: 'Proof that quality still exists, our Made in the USA 990v5 ' +
+                    'is the ultimate blend of performance and style. Made without compromise, ' +
+                    'the 990v5 is a staple of both morning runs and fashion runways. ' +
+                    'New Balance MADE U.S. footwear contains a domestic value of 70% or more. ' +
+                    'MADE makes up a limited portion of New Balance’s U.S. sales.'
+            },
+            {
+                id: 2, name: 'The 990v5 runs true to size but has a wider toe box than you may have had previously. This gives you plenty of wiggle-room.\n' +
+                    '\n' +
+                    'If you’re not a fan of the extra room, wear thicker socks. Thicker socks may help absorb sweat and is a trick on how to wear shoes that are too big anyway.\n' +
+                    '\n' +
+                    'Most customers don’t seem to mind the roomy toe box, though.\n' +
+                    '\n' +
+                    'As far as size options for the fit, they run sizes 7–14 for men and in half-sizes to 12.5.'
+            },
+            {
+                id: 3, name: 'STYLE #: W990GL5'
+            }
+        ],
+        imagesLeft: [
+            {
+                id: 1,
+                img: 'https://nbsklep.pl/picture/fit-in/500x500/smart/filters:fill(white):quality(75)/c50e8cb15f2a233e5c98300a55e8b050.jpg'
+            },
+            {
+                id: 2,
+                img: 'https://nbsklep.pl/picture/fit-in/500x500/smart/filters:fill(white):quality(75)/04e445096c18dc8688744b2c547db7a0.jpg'
+            },
+            {
+                id: 3,
+                img: 'https://nbsklep.pl/picture/fit-in/500x500/smart/filters:fill(white):quality(75)/acdbab7846d8cedc141186a48cf9205e.jpg'
+            },
+            {
+                id: 4,
+                img: 'https://nbsklep.pl/picture/fit-in/500x500/smart/filters:fill(white):quality(75)/59e04248954bd7b274eb681c88400cc1.jpg'
+            },
+            {
+                id: 5,
+                img: 'https://nbsklep.pl/picture/fit-in/500x500/smart/filters:fill(white):quality(75)/a7f7c27bbb93cfa453b7606133118e40.jpg'
+            }
+        ],
+        imagesRight: [
+            {
+                id: 6,
+                img: 'https://nbsklep.pl/picture/fit-in/500x500/smart/filters:fill(white):quality(75)/e6eca50da39a85ad7c9c9028ff1c091e.jpg'
+            },
+            {
+                id: 7,
+                img: 'https://nbsklep.pl/picture/fit-in/500x500/smart/filters:fill(white):quality(75)/9b81415c412d0f87a920ecfb6781e23f.jpg'
+            },
+            {
+
+                id: 8,
+                img: 'https://nbsklep.pl/picture/fit-in/500x500/smart/filters:fill(white):quality(75)/024bdceb51e03160b4c0d218b315c54f.jpg'
+            },
+            {
+                id: 9,
+                img: 'https://nbsklep.pl/picture/fit-in/500x500/smart/filters:fill(white):quality(75)/c374bcede3119758b02258aaa1d0ee6e.jpg'
+            }
+        ]
     }
     return (
         <main className={cl.mainContent}>
             <Row className={cl.rowContainer}>
                 <Col className={cl.columnPhotoContainer} lg={true} md={6}>
-                    <Image className={cl.productGalleryImage} src={item.img}/>
-                    <Image className={cl.productGalleryImage} src={item.img}/>
-                    <Image className={cl.productGalleryImage} src={item.img}/>
-                    <Image className={cl.productGalleryImage} src={item.img}/>
-                    <Image className={cl.productGalleryImage} src={item.img}/>
-                    <Image className={cl.productGalleryImage} src={item.img}/>
+                    {item.imagesLeft.map(imagesLeft =>
+                        <Image
+                            key={imagesLeft.id}
+                            className={cl.productGalleryImage}
+                            src={imagesLeft.img}
+                        />
+                    )}
                 </Col>
                 <Col className={cl.columnPhotoContainer} lg={true} md={6}>
-                    <Image className={cl.productGalleryImage} src={item.img}/>
-                    <Image className={cl.productGalleryImage} src={item.img}/>
-                    <Image className={cl.productGalleryImage} src={item.img}/>
-                    <Image className={cl.productGalleryImage} src={item.img}/>
-                    <Image className={cl.productGalleryImage} src={item.img}/>
-                    <Image className={cl.productGalleryImage} src={item.img}/>
+                    {item.imagesRight.map(imagesRight =>
+                        <Image
+                            key={imagesRight.id}
+                            className={cl.productGalleryImage}
+                            src={imagesRight.img}
+                        />
+                    )}
                 </Col>
                 <Col className={cl.columnProductInfoContainer}>
                     <div className={cl.productContentContainer}>
@@ -61,7 +133,7 @@ const ItemPage = () => {
                             <p className={cl.productColor}>
                                 Color: {item.color}
                             </p>
-                            <div className={cl.prductAvailabilaty}>
+                            <div className={cl.productAvailability}>
                                 Product is available: {item.itemAvailable
                                 ? <span className={cl.spanItemAvailable}></span>
                                 : <span className={cl.spanItemUnavailable}></span>}
@@ -99,23 +171,31 @@ const ItemPage = () => {
                             <section className={cl.productAccordion}>
                                 <div className={cl.tabContainer}>
                                     <div className={cl.tabTitles}>
-                                        <h3 onClick={toggleTabTitleClass}
-                                            className={isTabTitleClassActive
-                                                ? [cl.tabTitle, cl.tabTitleActive].join(' ')
-                                                : cl.tabTitle}>Product</h3>
-                                        <h3
-                                            onClick={toggleTabTitleClass}
-                                            className={isTabTitleClassActive
-                                                ? [cl.tabTitle, cl.tabTitleActive].join(' ')
-                                                : cl.tabTitle}>
-                                            Fit
-                                        </h3>
-                                        <h3 onClick={toggleTabTitleClass}
-                                            className={isTabTitleClassActive
-                                                ? [cl.tabTitle, cl.tabTitleActive].join(' ')
-                                                : cl.tabTitle}>Fabric</h3>
+                                        {menuTabs.map((menuTabs,) =>
+                                            <h3
+                                                key={menuTabs.id}
+                                                onClick={() => toggleTabs(menuTabs.id)}
+                                                className={isTabTitleClassActive === menuTabs.id
+                                                    ? [cl.tabTitle, cl.tabTitleActive].join(' ')
+                                                    : cl.tabTitle}
+                                            >
+                                                {menuTabs.name}
+                                            </h3>)
+                                        }
                                     </div>
-                                    <div className={cl.tabTextBox}></div>
+                                    <div className={cl.tabTextBox}>
+                                        {item.menuTextForTabs.map((menuTextForTabs) =>
+                                            <div
+                                                key={menuTextForTabs.id}
+                                                className={isTabTitleClassActive === menuTextForTabs.id ? cl.tabContentActive : cl.tabContent}>
+                                                <p>
+                                                <span>
+                                                    {menuTextForTabs.name}
+                                                </span>
+                                                </p>
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
                             </section>
                         </div>

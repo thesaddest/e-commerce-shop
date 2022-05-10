@@ -15,7 +15,7 @@
 
 
 .productGalleryImage {
-    padding: 1px;
+    padding: 4px;
     max-width: 100%;
     width: 100%;
     vertical-align: middle;
@@ -64,14 +64,14 @@
     margin-bottom: 0;
 }
 
-.prductAvailabilaty {
+.productAvailability {
     margin-bottom: 1rem;
     padding-top: 1rem;
     font-size: 1rem;
     line-height: 1.5rem;
 }
 
-.prductAvailabilaty span {
+.productAvailability span {
     margin-left: 0.25rem;
     margin-bottom: 0.02rem;
     display: inline-block;
@@ -205,4 +205,20 @@
     color: black;
     font-weight: 700;
     border-bottom: 2px solid black;
+}
+
+.tabTextBox {
+    padding: 1em 20px 0.75em;
+}
+
+.tabContent {
+    display: none;
+}
+
+.tabContentActive{
+    display: block;
+}
+
+.productDescription p {
+    color: #4a4a4a;
 }
