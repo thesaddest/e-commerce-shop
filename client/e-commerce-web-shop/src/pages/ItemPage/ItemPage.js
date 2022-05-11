@@ -107,7 +107,7 @@ const ItemPage = () => {
                     ?
                     <>
                         <Col className={cl.columnPhotoContainer} lg={true} md={6}>
-                            <Carousel>
+                            <Carousel variant="dark">
                                 {item.imagesLeft.map(imagesLeft =>
                                     <Carousel.Item>
                                         <Image

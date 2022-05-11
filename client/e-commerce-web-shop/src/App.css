@@ -5,6 +5,20 @@ root {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: whitesmoke;
+    background: whitesmoke;
     font-family: 'Inter', sans-serif;
+}
+
+.carousel-control-next-icon {
+    background-color: transparent;
+    width: 1.5rem;
+}
+
+.carousel-control-prev-icon {
+    background-color: transparent;
+    width: 1.5rem;
+}
+
+.carousel-indicators {
+    background-color: transparent;
 }
