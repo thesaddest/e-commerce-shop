@@ -9,18 +9,17 @@ const ItemPage = () => {
     const [activeButton, setActiveButton] = useState("");
     const [isTabTitleClassActive, setTabTitleClassActive] = useState("");
     const [showItem, setShowItem] = useState(false);
-    const isMobileScreenSize = useMediaQuery('(max-width: 576px)')
-
+    const isMobileScreenSize = useMediaQuery('(max-width: 576px)');
 
     const toggleTabs = (isTabTitleClassActive) => {
         setTabTitleClassActive(isTabTitleClassActive)
         setShowItem(true)
     }
 
-
     useEffect(() => {
         setTabTitleClassActive(menuTabs[0].id)
     }, [])
+
 
     const item = {
         id: 1,

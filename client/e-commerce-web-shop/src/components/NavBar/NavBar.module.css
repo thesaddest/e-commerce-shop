@@ -1,0 +1,75 @@
+a:hover {
+    color: white;
+}
+.navbar {
+
+}
+
+.brandLogo {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    padding-right: 10px;
+    position: absolute;
+    left: 50%;
+    margin-left: -80px;
+}
+
+
+.header {
+    max-width: 100%;
+    background-color: #141414;
+    color: white;
+    padding: 10px 0;
+    text-transform: uppercase;
+}
+
+.headerContainer {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    min-height: 50px;
+
+}
+
+.headerBody {
+    display: flex;
+    align-items: center;
+}
+
+.headerBodyMenu {
+    flex: 1 1 auto;
+}
+
+.menuIcon {
+    display: none;
+}
+
+.menuBody {
+
+}
+
+.menuList {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 60px;
+    row-gap: 5px;
+    list-style: none;
+}
+
+.menuItem {
+
+}
+
+.menuLink {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+@media (max-width: 576px) {
+    .menuIcon {
+
+    }
+}

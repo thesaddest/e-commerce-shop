@@ -29,7 +29,7 @@
 
 .productContentContainer {
     position: sticky;
-    top: 2em;
+    top: 4.5em;
     left: 0px;
 }
 
@@ -115,7 +115,7 @@
 }
 
 .sizeSelectItem {
-    border: 1px solid black;
+    border: 1px solid #212529;
     float: left;
     display: flex;
     cursor: pointer;
@@ -133,7 +133,7 @@
 
 .sizeSelectItemActive {
 
-    background-color: black;
+    background-color: #212529;
 
     animation-name: background;
     animation-duration: 0.3s;
@@ -158,13 +158,13 @@
         background-color: transparent;
     }
     100% {
-        background-color: black;
+        background-color: #212529;
     }
 }
 
 @keyframes backgroundNumber {
     0% {
-        color: black;
+        color: #212529;
     }
     100% {
         color: white;
@@ -203,9 +203,9 @@
 }
 
 .tabTitleActive {
-    color: black;
+    color: #212529;
     font-weight: 700;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #212529;
 }
 
 .tabTextBox {
@@ -235,7 +235,7 @@
         justify-content: center;
     }
     .rowContainer {
-        width: 320px;
+        max-width: 100%;
     }
     .productHeaderContainer {
         text-align: center;
