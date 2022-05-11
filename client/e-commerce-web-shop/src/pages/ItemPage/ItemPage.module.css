@@ -90,7 +90,7 @@
 
 .sizeSelectContainer {
     position: relative;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     max-width: 100%;
 }
 
@@ -107,10 +107,11 @@
 
 .chooseSizeWrapper {
     margin-top: 1.25rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .sizeSelectItem {
@@ -153,10 +154,10 @@
 }
 
 @keyframes background {
-    0%{
+    0% {
         background-color: transparent;
     }
-    100%{
+    100% {
         background-color: black;
     }
 }
@@ -215,10 +216,36 @@
     display: none;
 }
 
-.tabContentActive{
+.tabContentActive {
     display: block;
 }
 
 .productDescription p {
     color: #4a4a4a;
+}
+
+.paymentButton {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 576px) {
+    .mainContent {
+        display: flex;
+        justify-content: center;
+    }
+    .rowContainer {
+        width: 320px;
+    }
+    .productHeaderContainer {
+        text-align: center;
+    }
+
+    .productHeaderTextContainer {
+        padding-top: 0.5rem;
+    }
+    button {
+        white-space: nowrap;
+    }
+
 }

@@ -30,8 +30,8 @@ const NavBar = observer(() => {
                     <ul className='nav__links'>
                         <li><button>arrivals</button></li>
                         <li><button>shop</button></li>
+                        <li><button>cart</button></li>
                         <li><button onClick={() => user.setIsAuth(true)}>sign in</button></li>
-                        <li><button>bag</button></li>
                     </ul>
                 </nav>
             }

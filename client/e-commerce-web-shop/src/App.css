@@ -22,3 +22,22 @@ root {
 .carousel-indicators {
     background-color: transparent;
 }
+
+
+.btn {
+    border-radius: 0;
+    padding: 14px 116px;
+    transition: all 0.3s ease 0s;
+}
+
+.btn:hover {
+    background-color: whitesmoke;
+    color: black;
+}
+
+
+@media (max-width: 576px) {
+    .btn {
+        padding: 14px 80px;
+    }
+}

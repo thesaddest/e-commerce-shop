@@ -1,15 +1,15 @@
 import React, {useState, useEffect} from 'react';
-import {Col, Image, Row, Carousel} from "react-bootstrap";
+import {Col, Image, Row, Carousel, Button} from "react-bootstrap";
 import cl from './ItemPage.module.css'
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 const ItemPage = () => {
-    const menuTabs = [{id: 1, name: 'Product'}, {id: 2, name: 'Fit'}, {id: 3, name: 'Brand Style ID'}]
+    const menuTabs = [{id: 1, name: 'Product'}, {id: 2, name: 'Fit'}, {id: 3, name: 'Brand ID'}]
 
     const [activeButton, setActiveButton] = useState("");
     const [isTabTitleClassActive, setTabTitleClassActive] = useState("");
     const [showItem, setShowItem] = useState(false);
-    const isCarouselNeeded = useMediaQuery('(max-width: 576px)')
+    const isMobileScreenSize = useMediaQuery('(max-width: 576px)')
 
 
     const toggleTabs = (isTabTitleClassActive) => {
@@ -103,10 +103,10 @@ const ItemPage = () => {
     return (
         <main className={cl.mainContent}>
             <Row className={cl.rowContainer}>
-                {isCarouselNeeded
+                {isMobileScreenSize
                     ?
                     <>
-                        <Col className={cl.columnPhotoContainer} lg={true} md={6}>
+                        <Col className={cl.columnPhotoContainer} lg="true" md={6}>
                             <Carousel variant="dark">
                                 {item.imagesLeft.map(imagesLeft =>
                                     <Carousel.Item>
@@ -190,6 +190,13 @@ const ItemPage = () => {
                                     </span>
                                 )}
                             </div>
+                        </div>
+                        <div className={cl.paymentButton}>
+                            {isMobileScreenSize
+                                ? <Button size="sm" variant="dark" className="align-self-center mt-2">ADD TO CART</Button>
+                                : <Button size="lg" variant="dark" className="align-self-center mt-2">ADD TO CART</Button>
+                            }
+
                         </div>
                         <div className={cl.productDescription}>
                             <section className={cl.productAccordion}>
