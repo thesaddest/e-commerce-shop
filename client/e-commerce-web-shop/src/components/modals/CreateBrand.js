@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Admin = () => {
+const CreateBrand = () => {
     return (
         <div>
-            ADMIN PANEL
+
         </div>
     );
 };
 
-export default Admin;
+export default CreateBrand;

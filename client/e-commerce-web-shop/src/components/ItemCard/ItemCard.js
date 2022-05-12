@@ -7,9 +7,8 @@ import {ITEM_ROUTE} from "../../utils/consts";
 
 const ItemCard = ({item}) => {
     const navigate = useNavigate();
-    console.log(navigate)
     return (
-        <Col md="6" className="mt-4" onClick={() => navigate(ITEM_ROUTE + '/' + item.id)}>
+        <Col md="4" className="mt-4" onClick={() => navigate(ITEM_ROUTE + '/' + item.id)}>
             <Card className={cl.itemCard}>
                 <Image src={item.img}/>
                 <div className="d-flex justify-content-between align-items-center">
