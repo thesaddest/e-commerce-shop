@@ -4,9 +4,7 @@ export default class ItemStore {
     constructor() {
         this._types = [
             {id: 1, name: 'Sneakers'},
-            {id: 2, name: 'Boots'},
-            {id: 3, name: 'Shop All'},
-            {id: 4, name: 'Sale'}
+            {id: 2, name: 'Boots'}
         ]
         this._brands = [
             {id: 1, name: 'New Balance'},

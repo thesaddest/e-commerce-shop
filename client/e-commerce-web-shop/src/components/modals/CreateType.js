@@ -23,8 +23,8 @@ const CreateType = ({show, onHide}) => {
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="dark" onClick={onHide}>CLOSE</Button>
-                <Button variant="dark" onClick={onHide}>ADD NEW TYPE</Button>
+                <Button variant="dark" size="sm" onClick={onHide}>CLOSE</Button>
+                <Button variant="dark" size="sm" onClick={onHide}>ADD NEW TYPE</Button>
             </Modal.Footer>
         </Modal>
     );
