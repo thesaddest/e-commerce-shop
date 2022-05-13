@@ -10,7 +10,7 @@ const ItemCard = ({item}) => {
     return (
         <Col md="4" className="mt-4" onClick={() => navigate(ITEM_ROUTE + '/' + item.id)}>
             <Card className={cl.itemCard}>
-                <Image src={item.img}/>
+                <Image src={process.env.REACT_APP_API_URL + item.img}/>
                 <div className="d-flex justify-content-between align-items-center">
                     <div>NEW BALANCE</div>
                     <div className="d-flex align-items-center">

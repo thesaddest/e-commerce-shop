@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {Context} from '../../index';
 import '../../App.css';
 import {Link, useNavigate} from "react-router-dom";
@@ -10,6 +10,11 @@ import cl from './NavBar.module.css'
 const NavBar = observer(() => {
     const {user} = useContext(Context);
     const navigate = useNavigate();
+
+    const logOut = () => {
+        user.setUser({})
+        user.setIsAuth(false)
+    }
 
     return (
         <div>
@@ -32,7 +37,7 @@ const NavBar = observer(() => {
                             <Nav>
                                 <Link to={BASKET_ROUTE} className="nav-link">CART</Link>
                                 <Nav.Link onClick={() => navigate(ADMIN_ROUTE)}>ADMIN PANEL</Nav.Link>
-                                <Nav.Link className="nav-link" onClick={() => navigate(LOGIN_ROUTE)}>SIGN OUT</Nav.Link>
+                                <Nav.Link className="nav-link" onClick={() => logOut()}>SIGN OUT</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>
@@ -47,7 +52,7 @@ const NavBar = observer(() => {
                                 <Nav.Link href="">SHOP</Nav.Link>
                             </Nav>
                             <Nav className={cl.navLinks}>
-                                <Nav.Link href="" onClick={() => user.setIsAuth(true)}>AUTHORIZATION</Nav.Link>
+                                <Nav.Link href="" onClick={() => navigate(LOGIN_ROUTE)}>AUTHORIZATION</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>
