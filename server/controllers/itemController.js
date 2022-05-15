@@ -2,16 +2,40 @@ const uuid = require('uuid')
 const path = require('path')
 const {Item, ItemInfo} = require('../models/models')
 const ApiError = require('../error/ApiError')
+const fs = require('fs')
 
 class ItemController {
     async create(req, res, next) {
         try {
             let {name, price, brandId, typeId, info} = req.body
-            const {img} = req.files
-            let fileName = uuid.v4() + '.jpg'
-            img.mv(path.resolve(__dirname, '..', 'static', fileName))
 
-            const item = await Item.create({name, price, brandId, typeId, img: fileName})
+            // let fileName = uuid.v4() + '.jpg'
+            let fileNamesArray = []
+            console.log(Object.keys(req.files))
+            Object.keys(req.files).map((key) => {
+                let fileName = req.files[key].name
+                fileName = uuid.v4() + '.jpg' // Generating random name
+                fileNamesArray.push(fileName)
+                let uploadPath = path.resolve(__dirname, '..', 'static', fileName) // The path for storing the image
+
+                fs.writeFile(uploadPath, req.files[key].data, () => {
+                    console.log(`${fileName}written successfully`)
+                    })
+                }
+            )
+            console.log(fileNamesArray)
+
+            const item = await Item.create(
+                {
+                    name,
+                    price,
+                    brandId,
+                    typeId,
+                    img1: fileNamesArray[0],
+                    img2: fileNamesArray[1],
+                    img3: fileNamesArray[2]
+                }
+            )
 
             if (info) {
                 info = JSON.parse(info)

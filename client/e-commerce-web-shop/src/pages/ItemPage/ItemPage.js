@@ -130,7 +130,12 @@ const ItemPage = () => {
                                 <Image
                                     key={item.id}
                                     className={cl.productGalleryImage}
-                                    src={process.env.REACT_APP_API_URL + item.img}
+                                    src={process.env.REACT_APP_API_URL + item.img1}
+                                />
+                                <Image
+                                    key={item.id}
+                                    className={cl.productGalleryImage}
+                                    src={process.env.REACT_APP_API_URL + item.img2}
                                 />
                         </Col>
                         {/*<Col className={cl.columnPhotoContainer} lg={true} md={6}>*/}

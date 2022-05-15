@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import {Button, Form, Modal} from "react-bootstrap";
-import {createType} from "../../http/itemAPI";
+import {createBrand} from "../../http/itemAPI";
 
 const CreateBrand = ({show, onHide}) => {
     const [value, setValue] = useState('')
 
     const addBrand = () => {
-        createType({name: value}).then(data => {
+        createBrand({name: value.toUpperCase()}).then(data => {
             setValue('')
             onHide()
         })
