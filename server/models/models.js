@@ -18,12 +18,25 @@ const BasketItem = sequelize.define('basket_item', {
 
 const Item = sequelize.define('item', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-    name: {type: DataTypes.STRING, unique: true, allowNull: false},
+    name: {type: DataTypes.STRING, allowNull: false},
     price: {type: DataTypes.INTEGER, allowNull: false},
+    color: {type: DataTypes.STRING, allowNull: false},
+    itemAvailable: {type: DataTypes.BOOLEAN, allowNull: false},
     rating: {type: DataTypes.INTEGER, defaultValue: 0},
+    menuTextForTabs1: {type: DataTypes.STRING, allowNull: false},
+    menuTextForTabs2: {type: DataTypes.STRING, allowNull: false},
+    menuTextForTabs3: {type: DataTypes.STRING, allowNull: false},
+    size1: {type: DataTypes.INTEGER, defaultValue: 40},
+    size2: {type: DataTypes.INTEGER, defaultValue: 41},
+    size3: {type: DataTypes.INTEGER, defaultValue: 42},
+    size4: {type: DataTypes.INTEGER, defaultValue: 43},
+    size5: {type: DataTypes.INTEGER, defaultValue: 44},
+    size6: {type: DataTypes.INTEGER, defaultValue: 45},
     img1: {type: DataTypes.STRING, allowNull: false},
-    img2: {type: DataTypes.STRING, allowNull: true},
-    img3: {type: DataTypes.STRING, allowNull: false}
+    img2: {type: DataTypes.STRING, allowNull: false},
+    img3: {type: DataTypes.STRING, allowNull: false},
+    img4: {type: DataTypes.STRING, allowNull: false},
+    img5: {type: DataTypes.STRING, allowNull: false}
 })
 
 const Type = sequelize.define('type', {

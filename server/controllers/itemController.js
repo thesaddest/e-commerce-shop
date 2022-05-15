@@ -7,7 +7,8 @@ const fs = require('fs')
 class ItemController {
     async create(req, res, next) {
         try {
-            let {name, price, brandId, typeId, info} = req.body
+            let {name, price, brandId, typeId, info, color, itemAvailable,
+            size1, size2, size3, size4, size5, size6, menuTextForTabs1, menuTextForTabs2, menuTextForTabs3} = req.body
 
             // let fileName = uuid.v4() + '.jpg'
             let fileNamesArray = []
@@ -31,9 +32,22 @@ class ItemController {
                     price,
                     brandId,
                     typeId,
+                    color,
+                    itemAvailable,
+                    size1,
+                    size2,
+                    size3,
+                    size4,
+                    size5,
+                    size6,
+                    menuTextForTabs1,
+                    menuTextForTabs2,
+                    menuTextForTabs3,
                     img1: fileNamesArray[0],
                     img2: fileNamesArray[1],
-                    img3: fileNamesArray[2]
+                    img3: fileNamesArray[2],
+                    img4: fileNamesArray[3],
+                    img5: fileNamesArray[4]
                 }
             )
 
