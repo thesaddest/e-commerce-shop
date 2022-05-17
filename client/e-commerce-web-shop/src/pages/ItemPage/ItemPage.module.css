@@ -234,9 +234,11 @@
         display: flex;
         justify-content: center;
     }
+
     .rowContainer {
         max-width: 100%;
     }
+
     .productHeaderContainer {
         text-align: center;
     }
@@ -244,6 +246,7 @@
     .productHeaderTextContainer {
         padding-top: 0.5rem;
     }
+
     button {
         white-space: nowrap;
     }

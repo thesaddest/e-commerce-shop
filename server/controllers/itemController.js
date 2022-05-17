@@ -15,7 +15,7 @@ class ItemController {
             console.log(Object.keys(req.files))
             Object.keys(req.files).map((key) => {
                 let fileName = req.files[key].name
-                fileName = uuid.v4() + '.jpg' // Generating random name
+                fileName = uuid.v4() + '.png' // Generating random name
                 fileNamesArray.push(fileName)
                 let uploadPath = path.resolve(__dirname, '..', 'static', fileName) // The path for storing the image
 

@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import './ItemsList.css';
 import {observer} from "mobx-react-lite";
 import {Context} from "../../index";
-import {Row} from "react-bootstrap";
+import {Row, Col} from "react-bootstrap";
 import ItemCard from "../ItemCard/ItemCard";
 
 const ItemsList = observer(() => {
@@ -10,7 +10,9 @@ const ItemsList = observer(() => {
     return (
         <Row className="d-flex">
             {items.items.map( item =>
-                <ItemCard key={item.id} item={item}/>
+                <Col md={4}>
+                    <ItemCard key={item.id} item={item}/>
+                </Col>
             )}
         </Row>
     );

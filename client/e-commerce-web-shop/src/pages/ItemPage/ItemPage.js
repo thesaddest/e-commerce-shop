@@ -4,16 +4,18 @@ import cl from './ItemPage.module.css'
 import useMediaQuery from "../../hooks/useMediaQuery";
 import {useParams} from 'react-router-dom'
 import {fetchOneItem} from "../../http/itemAPI";
+import Loader from "../../components/Loader/Loader";
 
 const ItemPage = () => {
     const menuTabs = [{id: 1, name: 'Product'}, {id: 2, name: 'Fit'}, {id: 3, name: 'Brand ID'}]
 
-    const {id} = useParams()
-    const [item, setItem] = useState({info: []})
+    const {id} = useParams();
+    const [item, setItem] = useState({info: []});
     const [activeButton, setActiveButton] = useState("");
     const [isTabTitleClassActive, setTabTitleClassActive] = useState("");
-    const [showItem, setShowItem] = useState(false);
+    const [showTab, setShowTab] = useState(false);
     const isMobileScreenSize = useMediaQuery('(max-width: 576px)');
+    const [loading, setLoading] = useState(true);
 
 
     const itemImages = [
@@ -45,13 +47,18 @@ const ItemPage = () => {
 
     const toggleTabs = (isTabTitleClassActive) => {
         setTabTitleClassActive(isTabTitleClassActive)
-        setShowItem(true)
+        setShowTab(true)
     }
 
     useEffect(() => {
-        fetchOneItem(id).then(data => setItem(data))
+        fetchOneItem(id).then(data => setItem(data)).finally(() => setLoading(false))
         setTabTitleClassActive(menuTabs[0].id)
     }, [])
+
+
+    if (loading) {
+        return <Loader/>
+    }
 
     return (
         <main className={cl.mainContent}>
@@ -103,7 +110,9 @@ const ItemPage = () => {
                                 {item.price + ' $'}
                             </span>
                             <p className={cl.productColor}>
-                                Color: {item.color}
+                                Color: {item.color[0].toUpperCase()
+                            + item.color.substring(1).toLowerCase()
+                            || "" /*Used .substring so as it's faster than .slice */}
                             </p>
                             <div className={cl.productAvailability}>
                                 Product is available: {item.itemAvailable

@@ -1,5 +1,7 @@
 import {$authHost, $host} from "./index";
-import jwtDecode from "jwt-decode";
+import React, {useState} from "react";
+import Loader from "../components/Loader/Loader";
+
 
 export const createType  = async (type) => {
     const {data} = await $authHost.post('api/type', type)

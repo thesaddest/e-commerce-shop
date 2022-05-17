@@ -1,4 +1,93 @@
-.itemCard {
+/*.itemCard {*/
+/*    cursor: pointer;*/
+/*    border: 0;*/
+/*}*/
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 10vh;
+    overflow: hidden;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.cardContainer {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.cardContainer .card {
+    position: relative;
+    width: 250px;
+    height: 350px;
+    margin: 20px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
     cursor: pointer;
-    border: 0;
+
+}
+
+.cardContainer .card .imageContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 20px 0 20px;
+    transition: 0.5s ease-in-out;
+}
+
+.cardContainer .card:hover .imageContainer {
+    transform: translateY(-70px);
+}
+
+.cardContainer .card .imageContainer img {
+    max-width: 100%;
+    transition: 0.5s ease-in-out;
+}
+
+.cardContainer .card:hover .imageContainer img {
+    transform: translate(-20px, -40px) rotate(-25deg) scale(1.4);
+}
+
+.cardContainer .card .imageContainer h2 {
+    padding-top: 20px;
+    padding-bottom: 30px;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #212529;
+    font-weight: bold;
+}
+
+.cardContainer .card .cardContent {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.5s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+.cardContainer .card:hover .cardContent {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cardContainer .card .cardContent .itemPrice{
+    color: #212529;
+    font-weight: bold;
+    padding-bottom: 6px;
 }

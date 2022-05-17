@@ -1,11 +1,11 @@
 root {
     --secondary: 0,0,0;
 }
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /*background: whitesmoke;*/
     font-family: 'Inter', sans-serif;
 }
 
@@ -35,6 +35,17 @@ root {
     color: black;
 }
 
+.loaderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.list-group-item.list-group-item.active {
+    margin-top: 0 !important;
+    border-top-width: 0 !important;
+}
 
 @media (max-width: 576px) {
     .btn {
