@@ -36,7 +36,7 @@ const ItemCard = ({item}) => {
                                 size="sm"
                                 variant="dark"
                                 className="align-self-center mt-2"
-                                style={{paddingLeft: 80, paddingRight: 80, paddingTop: 14, paddingBottom: 14}}
+                                style={{paddingLeft: 80, paddingRight: 80, paddingTop: 14, paddingBottom: 14, marginTop: 20}}
                             >
                                 VIEW MORE
                             </Button>
