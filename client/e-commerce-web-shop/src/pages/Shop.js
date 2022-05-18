@@ -12,8 +12,8 @@ const Shop = observer(() => {
     const {items} = useContext(Context)
 
     useEffect(() => {
-        // fetchTypes().then(data => items.setTypes(data))
-        // fetchBrands().then(data => items.setBrands(data))
+        fetchTypes().then(data => items.setTypes(data))
+        fetchBrands().then(data => items.setBrands(data))
         fetchItems(null, null, 1, 2).then(data => {
             items.setItems(data.rows)
             items.setTotalCount(data.count)
@@ -25,7 +25,7 @@ const Shop = observer(() => {
             items.setItems(data.rows)
             items.setTotalCount(data.count)
         })
-    }, [items.page, items.selectedType, items.selectedBrand,])
+    }, [items.page, items.selectedType, items.selectedBrand])
     return (
         <Container>
             <Row className="mt-4">

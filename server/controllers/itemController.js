@@ -80,15 +80,15 @@ class ItemController {
         }
 
         if (brandId && !typeId) {
-            items = await Item.findAndCountAll({where: {brandId, limit, offset}})
+            items = await Item.findAndCountAll({where: {brandId}, limit, offset})
         }
 
         if (!brandId && typeId) {
-            items = await Item.findAndCountAll({where: {typeId, limit, offset}})
+            items = await Item.findAndCountAll({where: {typeId}, limit, offset})
         }
 
         if (brandId && typeId) {
-            items = await Item.findAndCountAll({where: {typeId, brandId, limit, offset}})
+            items = await Item.findAndCountAll({where: {typeId, brandId}, limit, offset})
         }
         return res.json(items)
     }

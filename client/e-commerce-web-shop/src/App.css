@@ -47,6 +47,27 @@ root {
     border-top-width: 0 !important;
 }
 
+.page-link {
+    color: #212529;
+}
+
+.page-link:hover {
+    color: #212529;
+}
+
+.page-item:first-child .page-link{
+    border-radius: 0;
+}
+
+.page-item:last-child .page-link{
+    border-radius: 0;
+}
+
+.page-item.active .page-link {
+    background-color: #212529;
+    border-color: #212529;
+}
+
 @media (max-width: 576px) {
     .btn {
         padding: 14px 80px;

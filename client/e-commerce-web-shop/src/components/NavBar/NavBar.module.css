@@ -7,13 +7,22 @@ a:focus {
 }
 
 .brandLogo {
+    padding-right: 10px;
     text-decoration: none;
     color: white;
     font-size: 24px;
-    padding-right: 10px;
+}
+
+.search {
     position: absolute;
     left: 50%;
-    margin-left: -80px;
+    margin-left: -137px;
+}
+
+@media (max-width: 576px) {
+    .search {
+        display: none;
+    }
 }
 
 
