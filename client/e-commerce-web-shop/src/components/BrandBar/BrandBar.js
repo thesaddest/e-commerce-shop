@@ -7,7 +7,7 @@ import cl from './BrandBar.module.css';
 const BrandBar = observer(() => {
     const {items} = useContext(Context)
     return (
-        <Row className="d-flex justify-content-center" style={{marginTop: 62}}>
+        <Row className="d-flex justify-content-evenly" style={{marginTop: 62}}>
             {items.brands.map(brand =>
                 <ListGroup.Item
                     onClick={() => items.setSelectedBrand(brand)}

@@ -1,6 +1,5 @@
 import {$authHost, $host} from "./index";
-import React, {useState} from "react";
-import Loader from "../components/Loader/Loader";
+import React from "react";
 
 
 export const createType  = async (type) => {

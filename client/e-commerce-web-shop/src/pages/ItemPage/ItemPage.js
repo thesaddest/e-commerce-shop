@@ -4,7 +4,6 @@ import cl from './ItemPage.module.css'
 import useMediaQuery from "../../hooks/useMediaQuery";
 import {useParams} from 'react-router-dom'
 import {fetchOneItem} from "../../http/itemAPI";
-import Loader from "../../components/Loader/Loader";
 
 const ItemPage = () => {
     const menuTabs = [{id: 1, name: 'Product'}, {id: 2, name: 'Fit'}, {id: 3, name: 'Brand ID'}]
@@ -16,7 +15,6 @@ const ItemPage = () => {
     const [showTab, setShowTab] = useState(false);
     const isMobileScreenSize = useMediaQuery('(max-width: 576px)');
     const [loading, setLoading] = useState(true);
-
 
     const itemImages = [
         {id: 1, name: item.img1},
@@ -57,7 +55,7 @@ const ItemPage = () => {
 
 
     if (loading) {
-        return <Loader/>
+        return <span></span>
     }
 
     return (
@@ -112,7 +110,7 @@ const ItemPage = () => {
                             <p className={cl.productColor}>
                                 Color: {item.color[0].toUpperCase()
                             + item.color.substring(1).toLowerCase()
-                            || "" /*Used .substring so as it's faster than .slice */}
+                            || "" /* Used .substring so as it's faster than .slice */}
                             </p>
                             <div className={cl.productAvailability}>
                                 Product is available: {item.itemAvailable

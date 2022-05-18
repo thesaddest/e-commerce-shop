@@ -10,8 +10,8 @@ const ItemsList = observer(() => {
     return (
         <Row className="d-flex">
             {items.items.map( item =>
-                <Col md={4}>
-                    <ItemCard key={item.id} item={item}/>
+                <Col key={item.id} md={4}>
+                    <ItemCard item={item}/>
                 </Col>
             )}
         </Row>

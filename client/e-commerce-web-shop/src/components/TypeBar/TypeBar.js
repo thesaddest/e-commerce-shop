@@ -7,7 +7,7 @@ import './TypeBar.css'
 const TypeBar = observer(() => {
     const {items} = useContext(Context)
     return (
-        <ListGroup >
+        <ListGroup>
             <h1>CATEGORIES</h1>
             {items.types.map(type =>
                 <ListGroup.Item
