@@ -99,26 +99,6 @@ const CreateItem = observer(({show, onHide}) => {
                         type="file"
                         onChange={selectFile}
                     />
-                    {/*<Form.Control*/}
-                    {/*    className="mt-3"*/}
-                    {/*    type="file"*/}
-                    {/*    onChange={selectFile}*/}
-                    {/*/>*/}
-                    {/*<Form.Control*/}
-                    {/*    className="mt-3"*/}
-                    {/*    type="file"*/}
-                    {/*    onChange={selectFile}*/}
-                    {/*/>*/}
-                    {/*<Form.Control*/}
-                    {/*    className="mt-3"*/}
-                    {/*    type="file"*/}
-                    {/*    onChange={selectFile}*/}
-                    {/*/>*/}
-                    {/*<Form.Control*/}
-                    {/*    className="mt-3"*/}
-                    {/*    type="file"*/}
-                    {/*    onChange={selectFile}*/}
-                    />
                 </Form>
                 <hr/>
                 <Button
