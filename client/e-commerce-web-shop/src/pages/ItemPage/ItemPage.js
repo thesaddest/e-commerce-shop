@@ -5,7 +5,10 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 import {useParams} from 'react-router-dom'
 import {fetchOneItem} from "../../http/itemAPI";
 
-const ItemPage = () => {
+// const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]')
+
+const ItemPage = ({setAmountItemsInCart}) => {
+
     const menuTabs = [{id: 1, name: 'Product'}, {id: 2, name: 'Fit'}, {id: 3, name: 'Brand ID'}]
 
     const {id} = useParams();
@@ -15,6 +18,20 @@ const ItemPage = () => {
     const [showTab, setShowTab] = useState(false);
     const isMobileScreenSize = useMediaQuery('(max-width: 576px)');
     const [loading, setLoading] = useState(true);
+
+    const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]')
+    const [cart, setCart] = useState(cartFromLocalStorage);
+
+
+    const addToCart = (item) => {
+        setCart([...cart, item])
+    }
+
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cart))
+        setAmountItemsInCart(cart.length)
+    }, [cart])
+
 
     const itemImages = [
         {id: 1, name: item.img1},
@@ -151,7 +168,13 @@ const ItemPage = () => {
                             {isMobileScreenSize
                                 ? <Button size="sm" variant="dark" className="align-self-center mt-2">ADD TO
                                     CART</Button>
-                                : <Button size="lg" variant="dark" className="align-self-center mt-2">ADD TO
+                                : <Button
+                                    onClick={() => addToCart(item)}
+                                    size="lg"
+                                    variant="dark"
+                                    className="align-self-center mt-2"
+                                >
+                                    ADD TO
                                     CART</Button>
                             }
                         </div>

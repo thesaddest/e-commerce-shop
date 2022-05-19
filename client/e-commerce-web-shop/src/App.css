@@ -32,7 +32,18 @@ root {
 
 .btn:hover {
     background-color: whitesmoke;
-    color: black;
+    color: #212529;
+}
+
+nav .btn {
+    color: rgba(255,255,255,0.55);
+    background-color: #212529;
+}
+
+nav .btn:hover {
+    border-color: transparent;
+    color: whitesmoke;
+    background-color: #212529;
 }
 
 .loaderContainer {

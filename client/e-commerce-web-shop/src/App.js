@@ -13,7 +13,7 @@ const App = observer(() => {
     const {items} = useContext(Context)
     const {user} = useContext(Context)
     const [loading, setLoading] = useState(true);
-
+    const [amountItemsInCart, setAmountItemsInCart] = useState("")
 
     useEffect(() => {
         check().then(data => {
@@ -31,8 +31,8 @@ const App = observer(() => {
 
     return (
         <BrowserRouter>
-            <NavBar/>
-            <AppRouter/>
+            <NavBar amountItemsInCart={amountItemsInCart}/>
+            <AppRouter setAmountItemsInCart={setAmountItemsInCart}/>
         </BrowserRouter>
     );
 });

@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Col, Container, Row} from "react-bootstrap";
 import TypeBar from "../components/TypeBar/TypeBar";
 import BrandBar from "../components/BrandBar/BrandBar";
@@ -8,20 +8,26 @@ import Pages from "../components/Pages/Pages";
 import {fetchBrands, fetchItems, fetchTypes} from "../http/itemAPI";
 import {Context} from "../index";
 
-const Shop = observer(() => {
+const Shop = observer(({setAmountItemsInCart}) => {
+
+
     const {items} = useContext(Context)
+
+    const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]')
+    const [cart, setCart] = useState(cartFromLocalStorage);
 
     useEffect(() => {
         fetchTypes().then(data => items.setTypes(data))
         fetchBrands().then(data => items.setBrands(data))
-        fetchItems(null, null, 1, 2).then(data => {
+        fetchItems(null, null, 1, 3).then(data => {
             items.setItems(data.rows)
             items.setTotalCount(data.count)
         })
+        setAmountItemsInCart(cart.length)
     }, [])
 
     useEffect(() => {
-        fetchItems(items.selectedType.id, items.selectedBrand.id, items.page, 2).then(data => {
+        fetchItems(items.selectedType.id, items.selectedBrand.id, items.page, 3).then(data => {
             items.setItems(data.rows)
             items.setTotalCount(data.count)
         })

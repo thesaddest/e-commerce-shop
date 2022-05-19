@@ -3,11 +3,12 @@ import {Context} from '../../index';
 import '../../App.css';
 import {Link, useNavigate} from "react-router-dom";
 import {observer} from "mobx-react-lite";
-import {Container, Nav, Navbar, FormControl} from 'react-bootstrap'
+import {Container, Nav, Navbar, FormControl, Dropdown, Badge} from 'react-bootstrap'
 import {BASKET_ROUTE, LOGIN_ROUTE, SHOP_ROUTE, ADMIN_ROUTE} from "../../utils/consts";
 import cl from './NavBar.module.css'
+import {FaShoppingCart} from 'react-icons/fa'
 
-const NavBar = observer(() => {
+const NavBar = observer(({amountItemsInCart}) => {
     const {user} = useContext(Context);
     const navigate = useNavigate();
 
@@ -42,7 +43,10 @@ const NavBar = observer(() => {
                                 <Link to={SHOP_ROUTE} className="nav-link">SHOP</Link>
                             </Nav>
                             <Nav>
-                                <Link to={BASKET_ROUTE} className="nav-link">CART</Link>
+                                <Link to={BASKET_ROUTE} className="nav-link" style={{paddingRight: 2}}>
+                                    CART {amountItemsInCart}
+                                </Link>
+                                <FaShoppingCart color="rgba(255,255,255, 0.55)" fontSize="20px" style={{marginTop: 9, marginRight: 7}}/>
                                 <Nav.Link onClick={() => navigate(ADMIN_ROUTE)}>ADMIN PANEL</Nav.Link>
                                 <Nav.Link className="nav-link" onClick={() => logOut()}>SIGN OUT</Nav.Link>
                             </Nav>
