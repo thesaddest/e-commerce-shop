@@ -8,7 +8,7 @@ import {BASKET_ROUTE, LOGIN_ROUTE, SHOP_ROUTE, ADMIN_ROUTE} from "../../utils/co
 import cl from './NavBar.module.css'
 import {FaShoppingCart} from 'react-icons/fa'
 
-const NavBar = observer(({amountItemsInCart}) => {
+const NavBar = observer(({amountItemsInCart, getTotalItemAmountInCart}) => {
     const {user} = useContext(Context);
     const navigate = useNavigate();
 
@@ -44,7 +44,7 @@ const NavBar = observer(({amountItemsInCart}) => {
                             </Nav>
                             <Nav>
                                 <Link to={BASKET_ROUTE} className="nav-link" style={{paddingRight: 2}}>
-                                    CART {amountItemsInCart}
+                                    CART {getTotalItemAmountInCart()}
                                 </Link>
                                 <FaShoppingCart color="rgba(255,255,255, 0.55)" fontSize="20px" style={{marginTop: 9, marginRight: 7}}/>
                                 <Nav.Link onClick={() => navigate(ADMIN_ROUTE)}>ADMIN PANEL</Nav.Link>

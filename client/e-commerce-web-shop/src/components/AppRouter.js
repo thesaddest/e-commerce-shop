@@ -4,7 +4,7 @@ import {authRoutes, publicRoutes} from '../routes';
 import Shop from '../pages/Shop';
 import {Context} from '../index';
 
-const AppRouter = ({setAmountItemsInCart, cart, addToCart, setCart}) => {
+const AppRouter = ({setAmountItemsInCart, cart, addToCart, removeItem, clearCart, setQuantity, quantity}) => {
     const {user} = useContext(Context)
     return (
         <Routes>
@@ -13,7 +13,9 @@ const AppRouter = ({setAmountItemsInCart, cart, addToCart, setCart}) => {
                     setAmountItemsInCart={setAmountItemsInCart}
                     cart={cart}
                     addToCart={addToCart}
-                    setCart={setCart}
+                    removeItem={removeItem}
+                    clearCart={clearCart}
+                    setQuantity={setQuantity}
                 />}/>
             )}
 
@@ -22,7 +24,9 @@ const AppRouter = ({setAmountItemsInCart, cart, addToCart, setCart}) => {
                     setAmountItemsInCart={setAmountItemsInCart}
                     cart={cart}
                     addToCart={addToCart}
-                    setCart={setCart}
+                    removeItem={removeItem}
+                    clearCart={clearCart}
+                    setQuantity={setQuantity}
                 />}/>
             )}
             <Route path='*' element={<Shop/>}/>
