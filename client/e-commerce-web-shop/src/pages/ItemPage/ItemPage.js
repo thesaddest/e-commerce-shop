@@ -5,9 +5,7 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 import {useParams} from 'react-router-dom'
 import {fetchOneItem} from "../../http/itemAPI";
 
-// const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]')
-
-const ItemPage = ({setAmountItemsInCart}) => {
+const ItemPage = ({setAmountItemsInCart, cart, addToCart}) => {
 
     const menuTabs = [{id: 1, name: 'Product'}, {id: 2, name: 'Fit'}, {id: 3, name: 'Brand ID'}]
 
@@ -18,14 +16,6 @@ const ItemPage = ({setAmountItemsInCart}) => {
     const [showTab, setShowTab] = useState(false);
     const isMobileScreenSize = useMediaQuery('(max-width: 576px)');
     const [loading, setLoading] = useState(true);
-
-    const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]')
-    const [cart, setCart] = useState(cartFromLocalStorage);
-
-
-    const addToCart = (item) => {
-        setCart([...cart, item])
-    }
 
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart))

@@ -1,19 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import cl from './Basket.module.css'
 import {Link} from "react-router-dom";
 import {SHOP_ROUTE} from "../../utils/consts";
 import {Button} from "react-bootstrap";
 
 
-const Basket = () => {
-    const item = JSON.parse(localStorage.getItem('cart'))
+const Basket = ({cart, setCart, setAmountItemsInCart}) => {
+    let item = cart
+    const removeItem = (itemToRemove) => {
+        setCart(item = item.filter(item => item !== itemToRemove))
+        localStorage.setItem('cart', JSON.stringify(item))
+        setAmountItemsInCart(item.length)
+    }
 
     return (
         <div className={cl.mainContainer}>
             <h2>Shopping Cart</h2>
             {item === null ? (
                 <div className={cl.cartEmpty}>
-                    <p>Your cart is empty</p>
+                    <p>Your cart is currently empty</p>
                     <div className={cl.startShopping}>
                         <Link to={SHOP_ROUTE}>
                             <svg
@@ -49,7 +54,7 @@ const Basket = () => {
                                     <div>
                                         <h3>{cartItem.name}</h3>
                                         <p>{cartItem.menuTextForTabs1}</p>
-                                        <button>Remove</button>
+                                        <button onClick={() => removeItem(cartItem)}>Remove</button>
                                     </div>
                                 </div>
                                 <div className={cl.cartItemPrice}>${cartItem.price}</div>
@@ -59,22 +64,22 @@ const Basket = () => {
                                     <button>+</button>
                                 </div>
                                 <div className={cl.cartItemTotalPrice}>
-                                    ${cartItem.price + item.length}
+                                    ${cartItem.price * item.length}
                                 </div>
                             </div>
                         )}
                     </div>
                     <div className={cl.cartSummary}>
-                        <button className={cl.clearCart}>
+                        <Button variant='dark' size='sm' className={`${cl.clearCart} ${cl.btn}`}>
                             Clear Cart
-                        </button>
+                        </Button>
                         <div className={cl.cartCheckout}>
                             <div className={cl.subtotal}>
                                 <span>Subtotal</span>
                                 <span className={cl.subtotalAmount}></span>
                             </div>
                             <p>Taxes and shipping are calculated at checkout</p>
-                            <button>Check out</button>
+                            <Button size="sm" variant='dark' className={cl.btn}>CHECKOUT</Button>
                             <div className={cl.continueShopping}>
                                 <Link to={SHOP_ROUTE}>
                                     <svg

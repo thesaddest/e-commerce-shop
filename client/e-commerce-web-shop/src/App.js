@@ -15,6 +15,13 @@ const App = observer(() => {
     const [loading, setLoading] = useState(true);
     const [amountItemsInCart, setAmountItemsInCart] = useState("")
 
+    const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]')
+    const [cart, setCart] = useState(cartFromLocalStorage);
+
+    const addToCart = (item) => {
+        setCart([...cart, {...item}])
+    }
+
     useEffect(() => {
         check().then(data => {
             user.setUser(true)
@@ -32,7 +39,7 @@ const App = observer(() => {
     return (
         <BrowserRouter>
             <NavBar amountItemsInCart={amountItemsInCart}/>
-            <AppRouter setAmountItemsInCart={setAmountItemsInCart}/>
+            <AppRouter setAmountItemsInCart={setAmountItemsInCart} cart={cart} addToCart={addToCart} setCart={setCart}/>
         </BrowserRouter>
     );
 });
