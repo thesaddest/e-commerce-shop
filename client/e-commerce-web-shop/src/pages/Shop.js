@@ -8,13 +8,9 @@ import Pages from "../components/Pages/Pages";
 import {fetchBrands, fetchItems, fetchTypes} from "../http/itemAPI";
 import {Context} from "../index";
 
-const Shop = observer(({setAmountItemsInCart}) => {
-
+const Shop = observer(({setAmountItemsInCart, cart}) => {
 
     const {items} = useContext(Context)
-
-    const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]')
-    const [cart, setCart] = useState(cartFromLocalStorage);
 
     useEffect(() => {
         fetchTypes().then(data => items.setTypes(data))
@@ -23,7 +19,6 @@ const Shop = observer(({setAmountItemsInCart}) => {
             items.setItems(data.rows)
             items.setTotalCount(data.count)
         })
-        setAmountItemsInCart(cart.length)
     }, [])
 
     useEffect(() => {

@@ -1,9 +1,18 @@
-import {ADMIN_ROUTE, BASKET_ROUTE, ITEM_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE} from "./utils/consts";
+import {
+    ADMIN_ROUTE,
+    BASKET_ROUTE,
+    CHECKOUT_SUCCESS,
+    ITEM_ROUTE,
+    LOGIN_ROUTE,
+    REGISTRATION_ROUTE,
+    SHOP_ROUTE
+} from "./utils/consts";
 import Admin from "./pages/Admin/Admin";
 import Basket from "./pages/Basket/Basket";
 import Shop from "./pages/Shop";
 import Auth from "./pages/Auth/Auth";
 import ItemPage from "./pages/ItemPage/ItemPage";
+import CheckoutSuccess from "./components/CheckoutSuccess/CheckoutSuccess";
 
 export const authRoutes = [
     {
@@ -13,10 +22,6 @@ export const authRoutes = [
     {
         path: BASKET_ROUTE,
         Component: Basket
-    },
-    {
-        path: ADMIN_ROUTE,
-        Component: Admin
     },
     {
         path: BASKET_ROUTE,
@@ -37,6 +42,10 @@ export const authRoutes = [
     {
         path: ITEM_ROUTE +'/:id',
         Component: ItemPage
+    },
+    {
+        path: CHECKOUT_SUCCESS,
+        Component: CheckoutSuccess
     }
 ]
 
@@ -50,10 +59,6 @@ export const publicRoutes = [
         Component: Basket
     },
     {
-        path: ADMIN_ROUTE,
-        Component: Admin
-    },
-    {
         path: BASKET_ROUTE,
         Component: Basket
     },
@@ -72,5 +77,10 @@ export const publicRoutes = [
     {
         path: ITEM_ROUTE +'/:id',
         Component: ItemPage
+    },
+    {
+        path: CHECKOUT_SUCCESS,
+        Component: CheckoutSuccess
     }
+
 ]

@@ -4,7 +4,7 @@ import {authRoutes, publicRoutes} from '../routes';
 import Shop from '../pages/Shop';
 import {Context} from '../index';
 
-const AppRouter = ({setAmountItemsInCart, cart, addToCart, removeItem, clearCart, setQuantity, quantity}) => {
+const AppRouter = ({setAmountItemsInCart, cart, addToCart, removeItem, clearCart, setQuantity}) => {
     const {user} = useContext(Context)
     return (
         <Routes>

@@ -28,3 +28,7 @@
     background-color: transparent;
 }
 
+form div a:hover {
+    color: #0d6efd;
+}
+

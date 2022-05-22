@@ -3,13 +3,13 @@ import cl from './Basket.module.css'
 import {Link} from "react-router-dom";
 import {SHOP_ROUTE} from "../../utils/consts";
 import {Button} from "react-bootstrap";
+import PayButton from "../../components/PayButton/PayButton";
 
 const Basket = ({cart, clearCart, removeItem, setQuantity, addToCart}) => {
+
     const getTotalSum = () => {
         return cart.reduce((sum, {price, quantity}) => sum + price * quantity, 0)
     }
-
-
 
     return (
         <div className={cl.mainContainer}>
@@ -83,7 +83,7 @@ const Basket = ({cart, clearCart, removeItem, setQuantity, addToCart}) => {
                                 <span className={cl.subtotalAmount}>${getTotalSum()}</span>
                             </div>
                             <p>Taxes and shipping are calculated at checkout</p>
-                            <Button size="sm" variant='dark' className={cl.btn}>CHECKOUT</Button>
+                            <PayButton cartItems={cart}/>
                             <div className={cl.continueShopping}>
                                 <Link to={SHOP_ROUTE}>
                                     <svg

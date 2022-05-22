@@ -69,6 +69,10 @@ const NavBar = observer(({amountItemsInCart, getTotalItemAmountInCart}) => {
                                 <Nav.Link href="">SHOP</Nav.Link>
                             </Nav>
                             <Nav className={cl.navLinks}>
+                                <Link to={BASKET_ROUTE} className="nav-link" style={{paddingRight: 2}}>
+                                    CART {getTotalItemAmountInCart()}
+                                </Link>
+                                <FaShoppingCart color="rgba(255,255,255, 0.55)" fontSize="20px" style={{marginTop: 9, marginRight: 7}}/>
                                 <Nav.Link href="" onClick={() => navigate(LOGIN_ROUTE)}>AUTHORIZATION</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>

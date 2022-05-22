@@ -17,6 +17,9 @@ class UserController {
         if (!email || !password) {
             return next(ApiError.badRequest('Incorrect email or password'))
         }
+        if(password.length < 3 || email.length < 3) {
+            return next(ApiError.badRequest('The field must be longer than 3 symbols'))
+        }
         const candidate = await User.findOne({where: {email}})
         if (candidate) {
             return next(ApiError.badRequest('A user with this email already exists'))
@@ -32,11 +35,11 @@ class UserController {
         const {email, password} = req.body
         const user = await User.findOne({where: {email}})
         if(!user) {
-            return next(ApiError.badRequest('User was not found'))
+            return next(ApiError.badRequest('Invalid email or password...'))
         }
         let comparePassword = bcrypt.compareSync(password, user.password)
         if(!comparePassword){
-            return next(ApiError.badRequest('Incorrect password'))
+            return next(ApiError.badRequest('Invalid email or password...'))
         }
         const token = generateJwt(user.id, user.email, user.role)
         return res.json({token})

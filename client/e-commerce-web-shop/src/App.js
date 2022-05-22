@@ -8,6 +8,7 @@ import {check} from "./http/userAPI";
 import './App.css'
 import Loader from "./components/Loader/Loader";
 import {fetchBrands, fetchItems, fetchTypes} from "./http/itemAPI";
+import '@stripe/stripe-js';
 
 const App = observer(() => {
     const {items} = useContext(Context)
