@@ -28,11 +28,12 @@ const Admin = () => {
                 ADD BRAND
             </Button>
             <Button
+                disabled
                 variant={'dark'}
                 className="mt-2"
                 onClick={() => setItemVisible(true)}
             >
-                ADD ITEM
+                ADD ITEM (currently working on it)
             </Button>
             <CreateType show={typeVisible} onHide={() => setTypeVisible(false)}/>
             <CreateBrand show={brandVisible} onHide={() => setBrandVisible(false)}/>

@@ -30,9 +30,9 @@ const CreateItem = observer(({show, onHide}) => {
 
     const addItem = () => {
         const formData = new FormData()
-        formData.append('name',name)
+        formData.append('name', name)
         formData.append('price', `${price}`)
-        formData.append('img', file)
+        formData.append('img1', file)
         formData.append('brandId', items.selectedBrand.id)
         formData.append('typeId', items.selectedBrand.id)
         formData.append('info', JSON.stringify(info))

@@ -17,7 +17,6 @@ const PayButton = ({cartItems}) => {
             }
         }).catch((err) => console.log(err.message))
     }
-    console.log(cartItems)
     return (
         <>
             <Button size="sm" variant="dark" className={cl.btn} onClick={() => handleCheckout()}>CHECKOUT</Button>

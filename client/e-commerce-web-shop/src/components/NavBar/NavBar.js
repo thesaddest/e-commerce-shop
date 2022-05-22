@@ -29,12 +29,6 @@ const NavBar = observer(({amountItemsInCart, getTotalItemAmountInCart}) => {
                     fixed="top"
                 >
                     <Container>
-                        <Navbar.Text className={cl.search}>
-                            <FormControl
-                                style={{width: 300, height: 25}}
-                                placeholder="Search an item"
-                            />
-                        </Navbar.Text>
                         <Link className={cl.brandLogo} to={SHOP_ROUTE}>SHOES&BOOTS</Link>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                         <Navbar.Collapse id="responsive-navbar-nav">
@@ -45,8 +39,8 @@ const NavBar = observer(({amountItemsInCart, getTotalItemAmountInCart}) => {
                             <Nav>
                                 <Link to={BASKET_ROUTE} className="nav-link" style={{paddingRight: 2}}>
                                     CART {getTotalItemAmountInCart()}
+                                    <FaShoppingCart color="rgba(255,255,255, 0.55)" fontSize="20px" style={{padding: 2, marginBottom: 3}}/>
                                 </Link>
-                                <FaShoppingCart color="rgba(255,255,255, 0.55)" fontSize="20px" style={{marginTop: 9, marginRight: 7}}/>
                                 <Nav.Link onClick={() => navigate(ADMIN_ROUTE)}>ADMIN PANEL</Nav.Link>
                                 <Nav.Link className="nav-link" onClick={() => logOut()}>SIGN OUT</Nav.Link>
                             </Nav>
@@ -55,12 +49,6 @@ const NavBar = observer(({amountItemsInCart, getTotalItemAmountInCart}) => {
                 </Navbar>
                 : <Navbar collapseOnSelect expand="xxl" bg="dark" variant="dark" fixed="top" className={cl.navbar}>
                     <Container>
-                        <Navbar.Text className={cl.search}>
-                            <FormControl
-                                style={{width: 300, height: 25}}
-                                placeholder="Search an item"
-                            />
-                        </Navbar.Text>
                         <Link className={cl.brandLogo} to={SHOP_ROUTE}>SHOES&BOOTS</Link>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                         <Navbar.Collapse id="responsive-navbar-nav">
@@ -72,7 +60,8 @@ const NavBar = observer(({amountItemsInCart, getTotalItemAmountInCart}) => {
                                 <Link to={BASKET_ROUTE} className="nav-link" style={{paddingRight: 2}}>
                                     CART {getTotalItemAmountInCart()}
                                 </Link>
-                                <FaShoppingCart color="rgba(255,255,255, 0.55)" fontSize="20px" style={{marginTop: 9, marginRight: 7}}/>
+                                <FaShoppingCart color="rgba(255,255,255, 0.55)" fontSize="20px"
+                                                style={{marginTop: 9, marginRight: 7}}/>
                                 <Nav.Link href="" onClick={() => navigate(LOGIN_ROUTE)}>AUTHORIZATION</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
