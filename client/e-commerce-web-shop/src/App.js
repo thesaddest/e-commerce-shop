@@ -26,7 +26,7 @@ const App = observer(() => {
         localStorage.setItem('cart', JSON.stringify(newCart))
         setCart(newCart)
         if(product.quantity <= 0) {
-            clearCart()
+            removeItem(product)
         }
     }
 

@@ -16,6 +16,7 @@ const ItemPage = ({setAmountItemsInCart, cart, addToCart}) => {
     const [showTab, setShowTab] = useState(false);
     const isMobileScreenSize = useMediaQuery('(max-width: 576px)');
     const [loading, setLoading] = useState(true);
+    const [isSizeChosen, setIsSizeChosen] = useState(false)
 
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart))
@@ -53,6 +54,10 @@ const ItemPage = ({setAmountItemsInCart, cart, addToCart}) => {
     const toggleTabs = (isTabTitleClassActive) => {
         setTabTitleClassActive(isTabTitleClassActive)
         setShowTab(true)
+    }
+
+    const toggleAddToCart = () => {
+        setIsSizeChosen(true)
     }
 
     useEffect(() => {
@@ -136,6 +141,7 @@ const ItemPage = ({setAmountItemsInCart, cart, addToCart}) => {
                                         key={sizeAmount.id}
                                         onClick={() => {
                                             setActiveButton(sizeAmount.id)
+                                            toggleAddToCart()
                                         }}
                                         className={activeButton === sizeAmount.id
                                             ? [cl.sizeSelectItem, cl.sizeSelectItemActive].join(' ')
@@ -154,10 +160,11 @@ const ItemPage = ({setAmountItemsInCart, cart, addToCart}) => {
                                 )}
                             </div>
                         </div>
-                        <div className={cl.paymentButton}>
+                        <div className={isSizeChosen ? cl.paymentButton : cl.paymentButtonNotVisible}>
                             {isMobileScreenSize
-                                ? <Button size="sm" variant="dark" className="align-self-center mt-2">ADD TO
-                                    CART</Button>
+                                ? <Button size="sm" variant="dark" className="align-self-center mt-2">
+                                    ADD TO CART
+                                </Button>
                                 : <Button
                                     onClick={() => addToCart(item)}
                                     size="lg"
@@ -165,7 +172,8 @@ const ItemPage = ({setAmountItemsInCart, cart, addToCart}) => {
                                     className="align-self-center mt-2"
                                 >
                                     ADD TO
-                                    CART</Button>
+                                    CART
+                                </Button>
                             }
                         </div>
                         <div className={cl.productDescription}>

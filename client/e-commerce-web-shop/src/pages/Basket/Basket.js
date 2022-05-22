@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import cl from './Basket.module.css'
 import {Link} from "react-router-dom";
 import {SHOP_ROUTE} from "../../utils/consts";
 import {Button} from "react-bootstrap";
-
 
 const Basket = ({cart, clearCart, removeItem, setQuantity, addToCart}) => {
     const getTotalSum = () => {
@@ -63,12 +62,12 @@ const Basket = ({cart, clearCart, removeItem, setQuantity, addToCart}) => {
                                     <button onClick={() => addToCart(cartItem)}>+</button>
                                 </div>
                                 <div className={cl.cartItemTotalPrice}>
-                                    ${cartItem.price * cart.length}
+                                    ${cartItem.price * cartItem.quantity}
                                 </div>
                             </div>
                         )}
                     </div>
-                    <div className={cl.cartSummary}>
+                    <div className={cart.length > 0 ? cl.cartSummary : cl.cartSummaryWhenCartIsEmpty}>
                         {cart.length > 0 &&
                         (<Button
                             onClick={clearCart}

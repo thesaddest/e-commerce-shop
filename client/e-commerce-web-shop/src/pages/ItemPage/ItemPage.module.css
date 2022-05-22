@@ -229,7 +229,14 @@
     color: #4a4a4a;
 }
 
+.paymentButtonNotVisible {
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+}
+
 .paymentButton {
+    visibility: visible;
     display: flex;
     justify-content: center;
 }

@@ -99,8 +99,16 @@
 
 .cartSummary {
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
+    justify-content: space-between;
+    border-top: 1px solid #D8D8D8;
+    padding-top: 2rem;
+}
+
+.cartSummaryWhenCartIsEmpty {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
     border-top: 1px solid #D8D8D8;
     padding-top: 2rem;
 }
