@@ -49,7 +49,7 @@ const Basket = ({cart, clearCart, removeItem, setQuantity, addToCart}) => {
                             <div className={cl.cartItem} key={cartItem.id}>
                                 <div className={cl.cartProduct}>
                                     <img src={process.env.REACT_APP_API_URL + cartItem.img1} alt={cartItem.name}/>
-                                    <div>
+                                    <div className={cl.itemNameAndRemoveContainer}>
                                         <h3>{cartItem.name}</h3>
                                         <p>{cartItem.menuTextForTabs1}</p>
                                         <button onClick={() => removeItem(cartItem)}>Remove</button>

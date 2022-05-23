@@ -1,9 +1,9 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import {Context} from '../../index';
 import '../../App.css';
 import {Link, useNavigate} from "react-router-dom";
 import {observer} from "mobx-react-lite";
-import {Container, Nav, Navbar, FormControl, Dropdown, Badge} from 'react-bootstrap'
+import {Container, Nav, Navbar} from 'react-bootstrap'
 import {BASKET_ROUTE, LOGIN_ROUTE, SHOP_ROUTE, ADMIN_ROUTE} from "../../utils/consts";
 import cl from './NavBar.module.css'
 import {FaShoppingCart} from 'react-icons/fa'
@@ -59,9 +59,8 @@ const NavBar = observer(({amountItemsInCart, getTotalItemAmountInCart}) => {
                             <Nav className={cl.navLinks}>
                                 <Link to={BASKET_ROUTE} className="nav-link" style={{paddingRight: 2}}>
                                     CART {getTotalItemAmountInCart()}
+                                    <FaShoppingCart color="rgba(255,255,255, 0.55)" fontSize="20px" style={{padding: 2, marginBottom: 3}}/>
                                 </Link>
-                                <FaShoppingCart color="rgba(255,255,255, 0.55)" fontSize="20px"
-                                                style={{marginTop: 9, marginRight: 7}}/>
                                 <Nav.Link href="" onClick={() => navigate(LOGIN_ROUTE)}>AUTHORIZATION</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>

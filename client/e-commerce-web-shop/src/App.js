@@ -9,6 +9,7 @@ import './App.css'
 import Loader from "./components/Loader/Loader";
 import {fetchBrands, fetchItems, fetchTypes} from "./http/itemAPI";
 import '@stripe/stripe-js';
+import Footer from "./components/Footer/Footer";
 
 const App = observer(() => {
     const {items} = useContext(Context)
@@ -26,7 +27,7 @@ const App = observer(() => {
         ).quantity -= 1;
         localStorage.setItem('cart', JSON.stringify(newCart))
         setCart(newCart)
-        if(product.quantity <= 0) {
+        if (product.quantity <= 0) {
             removeItem(product)
         }
     }
@@ -87,6 +88,7 @@ const App = observer(() => {
                 cart={cart}
                 addToCart={addToCart}
                 removeItem={removeItem}/>
+            <Footer/>
         </BrowserRouter>
     );
 });

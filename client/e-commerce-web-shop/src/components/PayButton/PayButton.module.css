@@ -2,3 +2,9 @@
     text-transform: uppercase;
     padding: 14px 95px !important;
 }
+@media (max-width: 576px) {
+    .btn {
+        padding: 14px 60px !important;
+        width: 100%;
+    }
+}
