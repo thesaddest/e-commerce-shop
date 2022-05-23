@@ -81,8 +81,7 @@ const Auth = observer(() => {
     return (
         <div>
             <Container
-                className="d-flex justify-content-center align-items-center container"
-                style={{height: window.innerHeight - 84}}
+                className="d-flex justify-content-center align-items-center container auth-container"
             >
                 <Card border="dark" className="auth-card p-5">
                     <h2 className="auth-text">{isLogin ? "AUTHORIZATION" : "REGISTRATION"}</h2>
@@ -91,7 +90,7 @@ const Auth = observer(() => {
                             onBlur={e => blurHandler(e)}
                             name="email"
                             className="mt-3 input"
-                            placeholder="Email"
+                            placeholder="Email..."
                             value={email}
                             onChange={e => emailHandler(e)}
                         />

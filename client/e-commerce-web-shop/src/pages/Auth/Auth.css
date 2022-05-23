@@ -3,6 +3,10 @@
     border-radius: 0;
 }
 
+.auth-container {
+height: 100vh;
+}
+
 .auth-text {
     font-weight: 700;
     background-color: transparent;
@@ -30,5 +34,12 @@
 
 form div a:hover {
     color: #0d6efd;
+}
+
+@media (max-width: 576px) {
+ .auth-card {
+     padding: 2rem !important;
+ }
+
 }
 

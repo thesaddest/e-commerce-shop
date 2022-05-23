@@ -12,18 +12,42 @@ const Pages = observer(() => {
     for (let i = 0; i < pageCount; i++) {
         pages.push(i + 1)
     }
-    
+
+    const paginate = (num) => {
+        items.setPage(num)
+    }
+
+    const nextPage = () => {
+        if(items.page < pageCount) {
+            items.setPage(items.page + 1)
+        } else {
+            return
+        }
+    }
+
+    const prevPage = () => {
+        if(items.page > 1) {
+            items.setPage(items.page - 1)
+        } else {
+            return
+        }
+    }
+
+    console.log(pageCount)
+
     return (
-        <Pagination className="mt-5">
-            {pages.map( page =>
+        <Pagination className="mb-5">
+            <Pagination.Prev onClick={prevPage}/>
+            {pages.map(page =>
                 <Pagination.Item
                     key={page}
                     active={items.page === page}
-                    onClick={() => items.setPage(page)}
+                    onClick={() => paginate(page)}
                 >
                     {page}
                 </Pagination.Item>
             )}
+            <Pagination.Next onClick={nextPage}/>
         </Pagination>
     );
 });
