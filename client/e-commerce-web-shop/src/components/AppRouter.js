@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {Routes, Route} from 'react-router-dom'
 import {authRoutes, publicRoutes} from '../routes';
-import Shop from '../pages/Shop';
+import Shop from '../pages/Shop/Shop';
 import {Context} from '../index';
 
 const AppRouter = ({setAmountItemsInCart, cart, addToCart, removeItem, clearCart, setQuantity}) => {

@@ -78,9 +78,8 @@ const ItemPage = ({setAmountItemsInCart, cart, addToCart}) => {
                     <Col className={cl.columnPhotoContainer} lg="true" md={6}>
                         <Carousel variant="dark">
                             {itemImages.map(image =>
-                                <Carousel.Item>
+                                <Carousel.Item key={image.id}>
                                     <Image
-                                        key={image.id}
                                         className={cl.productGalleryImage}
                                         src={process.env.REACT_APP_API_URL + image.name}
                                     />
@@ -162,7 +161,11 @@ const ItemPage = ({setAmountItemsInCart, cart, addToCart}) => {
                         </div>
                         <div className={isSizeChosen ? cl.paymentButton : cl.paymentButtonNotVisible}>
                             {isMobileScreenSize
-                                ? <Button size="sm" variant="dark" className="align-self-center mt-2">
+                                ? <Button
+                                    onClick={() => addToCart(item)}
+                                    size="sm"
+                                    variant="dark"
+                                    className="align-self-center mt-2">
                                     ADD TO CART
                                 </Button>
                                 : <Button

@@ -1,12 +1,13 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {Col, Container, Row} from "react-bootstrap";
-import TypeBar from "../components/TypeBar/TypeBar";
-import BrandBar from "../components/BrandBar/BrandBar";
-import ItemsList from "../components/ItemsList/ItemsList";
+import TypeBar from "../../components/TypeBar/TypeBar";
+import BrandBar from "../../components/BrandBar/BrandBar";
+import ItemsList from "../../components/ItemsList/ItemsList";
 import {observer} from "mobx-react-lite";
-import Pages from "../components/Pages/Pages";
-import {fetchBrands, fetchItems, fetchTypes} from "../http/itemAPI";
-import {Context} from "../index";
+import Pages from "../../components/Pages/Pages";
+import {fetchBrands, fetchItems, fetchTypes} from "../../http/itemAPI";
+import {Context} from "../../index";
+import cl from './Shop.module.css'
 
 const Shop = observer(({setAmountItemsInCart, cart}) => {
 
@@ -28,7 +29,7 @@ const Shop = observer(({setAmountItemsInCart, cart}) => {
         })
     }, [items.page, items.selectedType, items.selectedBrand])
     return (
-        <Container>
+        <Container className={cl.shopContainer}>
             <Row className="mt-4">
                 <Col  md={3} style={{paddingTop: 60}}>
                     <TypeBar/>

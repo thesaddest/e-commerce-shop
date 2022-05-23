@@ -9,7 +9,7 @@ import {
 } from "./utils/consts";
 import Admin from "./pages/Admin/Admin";
 import Basket from "./pages/Basket/Basket";
-import Shop from "./pages/Shop";
+import Shop from "./pages/Shop/Shop";
 import Auth from "./pages/Auth/Auth";
 import ItemPage from "./pages/ItemPage/ItemPage";
 import CheckoutSuccess from "./components/CheckoutSuccess/CheckoutSuccess";

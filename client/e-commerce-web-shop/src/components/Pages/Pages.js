@@ -15,11 +15,13 @@ const Pages = observer(() => {
 
     const paginate = (num) => {
         items.setPage(num)
+        window.scrollTo(0,0)
     }
 
     const nextPage = () => {
         if(items.page < pageCount) {
             items.setPage(items.page + 1)
+            window.scrollTo(0,0)
         } else {
             return
         }
@@ -28,12 +30,11 @@ const Pages = observer(() => {
     const prevPage = () => {
         if(items.page > 1) {
             items.setPage(items.page - 1)
+            window.scrollTo(0,0)
         } else {
             return
         }
     }
-
-    console.log(pageCount)
 
     return (
         <Pagination className="mb-5">

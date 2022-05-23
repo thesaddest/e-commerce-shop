@@ -1,0 +1,9 @@
+.shopContainer {
+    height: 70vh;
+}
+
+@media (max-width: 567px) {
+    .shopContainer {
+        height: 100%;
+    }
+}
