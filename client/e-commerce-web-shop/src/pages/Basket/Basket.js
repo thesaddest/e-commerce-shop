@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import cl from './Basket.module.css'
 import {Link} from "react-router-dom";
 import {SHOP_ROUTE} from "../../utils/consts";
@@ -10,6 +10,10 @@ const Basket = ({cart, clearCart, removeItem, setQuantity, addToCart}) => {
     const getTotalSum = () => {
         return cart.reduce((sum, {price, quantity}) => sum + price * quantity, 0)
     }
+
+    useEffect(() => {
+        window.scrollTo(0,0)
+    }, [])
 
     return (
         <div className={cl.mainContainer}>
@@ -57,9 +61,9 @@ const Basket = ({cart, clearCart, removeItem, setQuantity, addToCart}) => {
                                 </div>
                                 <div className={cl.cartItemPrice}>${cartItem.price}</div>
                                 <div className={cl.cartItemQuantity}>
-                                    <button onClick={() => setQuantity(cartItem)}>-</button>
+                                    <button className={cl.btn} onClick={() => setQuantity(cartItem)}>-</button>
                                     <div className={cl.itemsInCartCount}>{cartItem.quantity}</div>
-                                    <button onClick={() => addToCart(cartItem)}>+</button>
+                                    <button className={cl.btn} onClick={() => addToCart(cartItem)}>+</button>
                                 </div>
                                 <div className={cl.cartItemTotalPrice}>
                                     ${cartItem.price * cartItem.quantity}
