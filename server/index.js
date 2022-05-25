@@ -20,12 +20,18 @@ app.use('/api', router)
 //Errors handling always in the end, last Middleware
 app.use(errorHandler)
 
+if(process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, '..', 'client', 'e-commerce-web-shop', 'build')))
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, '..', 'client', 'e-commerce-web-shop', 'build', 'index.html'))
+    })
+}
 
 const start = async () => {
     try {
         await sequelize.authenticate()
         await sequelize.sync()
-        app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
+        app.listen(PORT, () => console.log(`Server started on port ${PORT}`), console.log(process.env.NODE_ENV))
     } catch (e) {
         console.log(e)
     }
