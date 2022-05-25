@@ -8,7 +8,7 @@ import {BASKET_ROUTE, LOGIN_ROUTE, SHOP_ROUTE, ADMIN_ROUTE} from "../../utils/co
 import cl from './NavBar.module.css'
 import {FaShoppingCart} from 'react-icons/fa'
 
-const NavBar = observer(({amountItemsInCart, getTotalItemAmountInCart}) => {
+const NavBar = observer(({getTotalItemAmountInCart}) => {
     const {user} = useContext(Context);
     const navigate = useNavigate();
 

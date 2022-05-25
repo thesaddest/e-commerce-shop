@@ -63,6 +63,7 @@ const ItemPage = ({setAmountItemsInCart, cart, addToCart}) => {
     useEffect(() => {
         fetchOneItem(id).then(data => setItem(data)).finally(() => setLoading(false))
         setTabTitleClassActive(menuTabs[0].id)
+        window.scrollTo(0,0)
     }, [])
 
 

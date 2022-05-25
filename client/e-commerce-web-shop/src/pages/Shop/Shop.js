@@ -19,6 +19,7 @@ const Shop = observer(() => {
             items.setItems(data.rows)
             items.setTotalCount(data.count)
         })
+        window.scrollTo(0,0)
     }, [])
 
     useEffect(() => {
