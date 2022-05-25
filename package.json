@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "set NODE_ENV=production&& nodemon index.js"},
+    "dev": "set NODE_ENV=production&& nodemon index.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd client/e-commerce-web-shop && npm install && npm run build"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
