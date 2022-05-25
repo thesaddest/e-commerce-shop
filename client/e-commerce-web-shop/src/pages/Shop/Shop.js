@@ -7,9 +7,8 @@ import {observer} from "mobx-react-lite";
 import Pages from "../../components/Pages/Pages";
 import {fetchBrands, fetchItems, fetchTypes} from "../../http/itemAPI";
 import {Context} from "../../index";
-import cl from './Shop.module.css'
 
-const Shop = observer(({setAmountItemsInCart, cart}) => {
+const Shop = observer(() => {
 
     const {items} = useContext(Context)
 
@@ -29,7 +28,7 @@ const Shop = observer(({setAmountItemsInCart, cart}) => {
         })
     }, [items.page, items.selectedType, items.selectedBrand])
     return (
-        <Container className={cl.shopContainer}>
+        <Container>
             <Row className="mt-4">
                 <Col  md={3} style={{paddingTop: 60}}>
                     <TypeBar/>

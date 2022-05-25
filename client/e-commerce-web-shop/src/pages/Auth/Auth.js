@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {Card, Container, Form, Button, Row} from "react-bootstrap";
+import {Card, Container, Form, Button} from "react-bootstrap";
 import './Auth.css'
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import {LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE} from "../../utils/consts";
@@ -75,6 +75,8 @@ const Auth = observer(() => {
             case 'password':
                 setPasswordDirty(true)
                 break
+            default:
+                console.log('default switch/case')
         }
     }
 
