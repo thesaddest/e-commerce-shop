@@ -1,4 +1,4 @@
 *.env
-node_modules
+/node_modules
 client/node_modules
 client/e-commerce-web-shop/node_modules
