@@ -8,8 +8,6 @@ const router = require('./routes/index')
 const errorHandler = require('./middleware/ErrorHandlingMiddleware')
 const path = require('path')
 
-
-
 const PORT = process.env.PORT || 5000
 
 const app = express()
@@ -21,7 +19,6 @@ app.use('/api', router)
 
 //Errors handling always in the end, last Middleware
 app.use(errorHandler)
-
 
 
 const start = async () => {
