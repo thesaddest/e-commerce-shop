@@ -33,16 +33,16 @@ const NavBar = observer(({getTotalItemAmountInCart}) => {
                         <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="me-auto">
-                                <Link to={SHOP_ROUTE} className='nav-link'>NEW</Link>
-                                <Link to={SHOP_ROUTE} className="nav-link">SHOP</Link>
+                                <Nav.Link as={Link} to={SHOP_ROUTE} className='nav-link' eventKey="0">NEW</Nav.Link>
+                                <Nav.Link as={Link} to={SHOP_ROUTE} eventKey="1">SHOP</Nav.Link>
                             </Nav>
                             <Nav>
-                                <Link to={BASKET_ROUTE} className="nav-link" style={{paddingRight: 2}}>
+                                <Nav.Link as={Link} to={BASKET_ROUTE} className="nav-link" style={{paddingRight: 2}} eventKey="2">
                                     CART {getTotalItemAmountInCart()}
                                     <FaShoppingCart color="rgba(255,255,255, 0.55)" fontSize="20px" style={{padding: 2, marginBottom: 3}}/>
-                                </Link>
-                                <Nav.Link onClick={() => navigate(ADMIN_ROUTE)}>ADMIN PANEL</Nav.Link>
-                                <Nav.Link className="nav-link" onClick={() => logOut()}>SIGN OUT</Nav.Link>
+                                </Nav.Link>
+                                <Nav.Link onClick={() => navigate(ADMIN_ROUTE)} eventKey="3">ADMIN PANEL</Nav.Link>
+                                <Nav.Link className="nav-link" onClick={() => logOut()} eventKey="4">SIGN OUT</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>
@@ -53,15 +53,15 @@ const NavBar = observer(({getTotalItemAmountInCart}) => {
                         <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="me-auto">
-                                <Nav.Link href="">NEW</Nav.Link>
-                                <Nav.Link href="">SHOP</Nav.Link>
+                                <Nav.Link as={Link} to={SHOP_ROUTE} className='nav-link' eventKey="0">NEW</Nav.Link>
+                                <Nav.Link as={Link} to={SHOP_ROUTE} eventKey="1">SHOP</Nav.Link>
                             </Nav>
                             <Nav className={cl.navLinks}>
-                                <Link to={BASKET_ROUTE} className="nav-link" style={{paddingRight: 2}}>
+                                <Nav.Link as={Link} to={BASKET_ROUTE} className="nav-link" style={{paddingRight: 2}} eventKey="2">
                                     CART {getTotalItemAmountInCart()}
                                     <FaShoppingCart color="rgba(255,255,255, 0.55)" fontSize="20px" style={{padding: 2, marginBottom: 3}}/>
-                                </Link>
-                                <Nav.Link href="" onClick={() => navigate(LOGIN_ROUTE)}>AUTHORIZATION</Nav.Link>
+                                </Nav.Link>
+                                <Nav.Link href="" onClick={() => navigate(LOGIN_ROUTE)} eventKey="3">AUTHORIZATION</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>
