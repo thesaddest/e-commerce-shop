@@ -6,7 +6,7 @@ import cl from './PayButton.module.css'
 
 const PayButton = ({cartItems}) => {
     const user = useContext(Context)
-    const url = 'http://localhost:5000/api'
+    const url = 'https://pern-e-commerce-shop.herokuapp.com/api'
     const handleCheckout = () => {
         axios.post(`${url}/stripe/create-checkout-session`, {
             cartItems,
