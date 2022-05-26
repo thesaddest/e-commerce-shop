@@ -30,6 +30,10 @@ root {
     transition: all 0.3s ease 0s;
 }
 
+.quantity {
+    color: #212529;
+}
+
 .btn:hover {
     background-color: whitesmoke;
     color: #212529;

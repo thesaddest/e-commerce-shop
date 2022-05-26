@@ -61,9 +61,9 @@ const Basket = ({cart, clearCart, removeItem, setQuantity, addToCart}) => {
                                 </div>
                                 <div className={cl.cartItemPrice}>${cartItem.price}</div>
                                 <div className={cl.cartItemQuantity}>
-                                    <button className={cl.btn} onClick={() => setQuantity(cartItem)}>-</button>
+                                    <button className={cl.quantity} onClick={() => setQuantity(cartItem)}>-</button>
                                     <div className={cl.itemsInCartCount}>{cartItem.quantity}</div>
-                                    <button className={cl.btn} onClick={() => addToCart(cartItem)}>+</button>
+                                    <button className={cl.quantity} onClick={() => addToCart(cartItem)}>+</button>
                                 </div>
                                 <div className={cl.cartItemTotalPrice}>
                                     ${cartItem.price * cartItem.quantity}
