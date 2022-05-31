@@ -6,7 +6,8 @@
 ![](https://img.shields.io/badge/shoes%26boots-%20-lightgrey)
 It is a PERN stack mobile responsive web application made from scratch with which you can sell any type of shoes!
 
-![](https://i.ibb.co/PmDb80n/shoes.png)
+![](https://i.ibb.co/6g6VYxp/shoes-And-Boots-Responsive.png)
+
 
 # Key Features
 - [X] Responsive design
@@ -17,6 +18,8 @@ It is a PERN stack mobile responsive web application made from scratch with whic
 - [X] Ability to add types
 - [X] Ability to add brands
 - [ ] Ability to add items (currently working on it)
+
+![](https://i.ibb.co/PmDb80n/shoes.png)
 
 ![](https://i.ibb.co/LJ1rXjp/shoes.png)
 
